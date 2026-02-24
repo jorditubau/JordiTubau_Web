@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#008080">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Jordi Tubau Martínez - Portfolio Retro de Desarrollador Web Full Stack">
+    <title>Jordi Tubau Martínez - Portfolio OS</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="desktop" id="desktop">
+        <!-- Desktop Icons -->
+        <div class="desktop-icon" style="top: 20px; left: 120px;" data-action="open-contact">
+            <div class="desktop-icon-image">📬</div>
+            <div class="desktop-icon-label">Contacto.txt</div>
+        </div>
+
+        <div class="desktop-icon" style="top: 20px; left: 20px;" data-action="open-main">
+            <div class="desktop-icon-image">📁</div>
+            <div class="desktop-icon-label">Jordi Tubau Martínez</div>
+        </div>
+
+        <div class="desktop-icon" style="top: 120px; left: 20px;" data-action="open-game">
+            <div class="desktop-icon-image">🎮</div>
+            <div class="desktop-icon-label">Juego.exe</div>
+        </div>
+
+        <div class="desktop-icon" style="top: 220px; left: 20px;" data-action="open-image">
+            <div class="desktop-icon-image">🖼️</div>
+            <div class="desktop-icon-label">imagen.jpg</div>
+        </div>
+
+        <div class="desktop-icon" style="top: 20px; right: 20px;" data-action="open-trash">
+            <div class="desktop-icon-image">🗑️</div>
+            <div class="desktop-icon-label">Papelera</div>
+        </div>
+
+        <!-- Main Window -->
+        <div class="window" id="window-main" style="left: 150px; top: 100px; width: 600px; height: 400px;">
+            <div class="window-titlebar">
+                <div class="window-title">
+                    <span>📁</span>
+                    <span>Jordi Tubau Martínez</span>
+                </div>
+                <div class="window-controls">
+                    <div class="window-button" onclick="closeWindow('window-main')">✕</div>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0; display: flex; flex-direction: column;">
+                <div class="explorer-toolbar">
+                    <button class="toolbar-button" id="back-button" onclick="navigateBack()" disabled>◄ Atrás</button>
+                </div>
+                <div class="explorer-content" id="explorer-content">
+                    <div class="file-icon" data-folder="quien-soy">
+                        <div class="file-icon-image">📂</div>
+                        <div class="file-icon-label">¿Quién soy?</div>
+                    </div>
+                    <div class="file-icon" data-folder="proyectos">
+                        <div class="file-icon-image">📂</div>
+                        <div class="file-icon-label">Proyectos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Window -->
+        <div class="window" id="window-game" style="left: 200px; top: 150px; width: 640px; height: 520px;">
+            <div class="window-titlebar">
+                <div class="window-title">
+                    <span>🎮</span>
+                    <span>Juego.exe - Space Invaders</span>
+                </div>
+                <div class="window-controls">
+                    <div class="window-button" onclick="closeWindow('window-game')">✕</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="game-container" id="game-container">
+                    <canvas id="gameCanvas" class="game-canvas" width="600" height="400"></canvas>
+                    <div class="game-info">
+                        <div>PUNTOS: <span id="score">0</span></div>
+                    </div>
+                    <div class="game-controls-mobile">
+                        <div class="game-control-group">
+                            <button class="game-control-btn" id="btn-left">◄</button>
+                            <button class="game-control-btn" id="btn-right">►</button>
+                        </div>
+                        <button class="game-control-btn shoot" id="btn-shoot">🚀</button>
+                    </div>
+                    <div id="game-over-message" class="game-over" style="display: none;">
+                        GAME OVER
+                        <br>
+                        <button class="game-restart" onclick="restartGame()">REINICIAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notepad Window -->
+        <div class="window" id="window-notepad" style="left: 250px; top: 150px; width: 650px; height: 500px;">
+            <div class="window-titlebar">
+                <div class="window-title">
+                    <span>📄</span>
+                    <span id="notepad-title">Documento</span>
+                </div>
+                <div class="window-controls">
+                    <div class="window-button" onclick="closeWindow('window-notepad')">✕</div>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0;">
+                <textarea class="notepad-content" id="notepad-content" readonly></textarea>
+            </div>
+        </div>
+
+        <!-- Project Window -->
+        <div class="window" id="window-project" style="left: 200px; top: 120px; width: 700px; height: 450px;">
+            <div class="window-titlebar">
+                <div class="window-title">
+                    <span>🖼️</span>
+                    <span id="project-title">Proyecto</span>
+                </div>
+                <div class="window-controls">
+                    <div class="window-button" onclick="closeWindow('window-project')">✕</div>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0;">
+                <div class="project-window-content">
+                    <div class="project-image-container">
+                        <img id="project-image" class="project-image" src="" alt="Project Preview">
+                    </div>
+                    <div class="project-info-container">
+                        <div class="project-title" id="project-name">Nombre del Proyecto</div>
+                        <div class="project-description" id="project-description">Descripción del proyecto...</div>
+                        <a id="project-url" class="project-link" href="#" target="_blank">🔗 Ver Proyecto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trash Window -->
+        <div class="window" id="window-trash" style="left: 200px; top: 120px; width: 500px; height: 350px;">
+            <div class="window-titlebar">
+                <div class="window-title">
+                    <span>🗑️</span>
+                    <span>Papelera</span>
+                </div>
+                <div class="window-controls">
+                    <div class="window-button" onclick="closeWindow('window-trash')">✕</div>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0; display: flex; flex-direction: column;">
+                <div class="explorer-content" id="trash-content">
+                    <div class="file-icon" data-trash-file="borrador.txt">
+                        <div class="file-icon-image">📄</div>
+                        <div class="file-icon-label trash-file-label">borrador.txt</div>
+                    </div>
+                    <div class="file-icon" data-trash-image="deleted_photo.jpg">
+                        <div class="file-icon-image">🖼️</div>
+                        <div class="file-icon-label trash-image-label">deleted_photo.jpg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Window -->
+        <div class="window" id="window-contact" style="left: 300px; top: 200px; width: 500px; height: auto;">
+            <div class="window-titlebar">
+                <div class="window-title">
+                    <span>📧</span>
+                    <span>Contáctame</span>
+                </div>
+                <div class="window-controls">
+                    <div class="window-button" onclick="closeWindow('window-contact')">✕</div>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0;">
+                <form class="contact-form" id="contact-form" onsubmit="sendEmail(event)">
+                    <div>
+                        <label for="contact-name">Nombre:</label>
+                        <input type="text" id="contact-name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="contact-email">Tu Email:</label>
+                        <input type="email" id="contact-email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="contact-subject">Asunto:</label>
+                        <input type="text" id="contact-subject" name="subject" required>
+                    </div>
+                    <div>
+                        <label for="contact-message">Mensaje:</label>
+                        <textarea id="contact-message" name="message" required></textarea>
+                    </div>
+                    <div class="contact-form-buttons">
+                        <button type="button" onclick="closeWindow('window-contact')">Cancelar</button>
+                        <button type="submit">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Image Viewer Window -->
+        <div class="window" id="window-image" style="left: 250px; top: 150px; width: 600px; height: 500px;">
+            <div class="window-titlebar">
+                <div class="window-title">
+                    <span>🖼️</span>
+                    <span id="image-title">imagen.jpg</span>
+                </div>
+                <div class="window-controls">
+                    <div class="window-button" onclick="closeWindow('window-image')">✕</div>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0;">
+                <div class="image-viewer">
+                    <img id="image-display" src="" alt="Imagen">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <div class="taskbar-start">
+            <button class="taskbar-button" onclick="openContactWindow()">
+                📧 <span class="text-contact">Contáctame</span>
+            </button>
+        </div>
+        <div class="taskbar-end">
+            <div class="language-selector">
+                <button class="language-button" onclick="toggleLanguageDropdown()">
+                    🌍 <span id="current-language">ES</span>
+                </button>
+                <div class="language-dropdown" id="language-dropdown">
+                    <button class="language-option selected" onclick="changeLanguage('es')">
+                        🇪🇸 Español
+                    </button>
+                    <button class="language-option" onclick="changeLanguage('en')">
+                        🇬🇧 English
+                    </button>
+                </div>
+            </div>
+            <div class="taskbar-clock" id="taskbar-clock">00:00:00</div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/windows.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
