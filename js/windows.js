@@ -122,7 +122,7 @@ function openProjectWindow(name, url, image, description) {
 function openImageWindow() {
     const imageWindow = document.getElementById('window-image');
     const t = translations[currentLanguage];
-    document.getElementById('image-display').src = 'assets/foto1.jpg';
+    document.getElementById('image-display').src = 'assets/foto1.jpeg';
     document.getElementById('image-title').textContent = `${t.image} - ${t.image_viewer}`;
     openWindow('window-image');
 }

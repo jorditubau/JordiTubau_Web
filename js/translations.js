@@ -12,7 +12,7 @@ const translations = {
         trash: 'Papelera',
         contact_file: 'Contacto.txt',
         game: 'Juego.exe',
-        image: 'imagen.jpg',
+        image: 'FotoCV.jpg',
         main_folder: 'Jordi Tubau',
 
         // Carpetas principales
@@ -32,7 +32,7 @@ const translations = {
 
         // Papelera
         trash_file: 'borrador.txt',
-        trash_image: 'deleted_photo.jpg',
+        trash_image: 'img_2025.jpg',
 
         // Ventana de contacto
         contact_window_title: 'Contáctame',
@@ -60,7 +60,7 @@ const translations = {
         trash: 'Recycle Bin',
         contact_file: 'Contact.txt',
         game: 'Game.exe',
-        image: 'image.jpg',
+        image: 'FotoCV.jpg',
         main_folder: 'Jordi Tubau',
 
         // Main folders
@@ -80,7 +80,7 @@ const translations = {
 
         // Trash
         trash_file: 'draft.txt',
-        trash_image: 'deleted_photo.jpg',
+        trash_image: 'img_2025.jpg',
 
         // Contact window
         contact_window_title: 'Contact Me',
