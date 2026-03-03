@@ -135,34 +135,46 @@ function openContactWindow() {
 
 function sendEmail(event) {
     event.preventDefault();
-    
+
     const name = document.getElementById('contact-name').value;
     const email = document.getElementById('contact-email').value;
     const subject = document.getElementById('contact-subject').value;
     const message = document.getElementById('contact-message').value;
-    
-    const mailtoLink = `mailto:jorditubau24@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-        `Nombre: ${name}\n` +
-        `Email: ${email}\n\n` +
-        `Mensaje:\n${message}`
-    )}`;
-    
-    window.location.href = mailtoLink;
-    
-    setTimeout(() => {
-        closeWindow('window-contact');
-    }, 500);
+
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '...';
+
+    emailjs.send('service_n2xtlnj', 'template_96d7w3t', {
+        from_name: name,
+        from_email: email,
+        subject: subject,
+        message: message,
+    }).then(() => {
+        submitBtn.textContent = '✓';
+        setTimeout(() => {
+            document.getElementById('contact-form').reset();
+            closeWindow('window-contact');
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }, 1200);
+    }).catch(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        alert('Error al enviar. Inténtalo de nuevo.');
+    });
 }
 
 // Iconos del escritorio
 document.querySelectorAll('.desktop-icon').forEach(icon => {
     let iconLastClick = 0;
-    
+
     icon.addEventListener('click', (e) => {
         const now = Date.now();
         const timeSinceLastClick = now - iconLastClick;
 
-        if (timeSinceLastClick < 400) {
+        if (isTouchDevice() || timeSinceLastClick < 400) {
             const action = icon.getAttribute('data-action');
             
             if (action === 'open-main') {

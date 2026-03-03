@@ -90,6 +90,8 @@ function updateBackButton() {
 let lastClick = 0;
 let selectedIcon = null;
 
+const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
+
 document.getElementById('explorer-content').addEventListener('click', (e) => {
     const fileIcon = e.target.closest('.file-icon');
     if (!fileIcon) return;
@@ -103,7 +105,7 @@ document.getElementById('explorer-content').addEventListener('click', (e) => {
     fileIcon.classList.add('selected');
     selectedIcon = fileIcon;
 
-    if (timeSinceLastClick < 400) {
+    if (isTouchDevice() || timeSinceLastClick < 400) {
         handleDoubleClick(fileIcon);
     }
 
@@ -165,7 +167,7 @@ document.getElementById('trash-content').addEventListener('click', (e) => {
     fileIcon.classList.add('selected');
     selectedTrashIcon = fileIcon;
 
-    if (timeSinceLastClick < 400) {
+    if (isTouchDevice() || timeSinceLastClick < 400) {
         handleTrashDoubleClick(fileIcon);
     }
 
