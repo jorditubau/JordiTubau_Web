@@ -6,47 +6,65 @@
     <meta name="theme-color" content="#008080">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="description" content="Jordi Tubau Martínez - Portfolio Retro de Desarrollador Web Full Stack">
-    <title>Jordi Tubau Martínez - Portfolio OS</title>
-    
+    <meta name="description" content="Jordi Tubau - Portfolio Retro de Desarrollador Web Full Stack">
+    <title>Jordi Tubau - Portfolio OS</title>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <div class="desktop" id="desktop">
-        <!-- Desktop Icons -->
+
+        <!-- Icono: Jordi Tubau -->
+        <div class="desktop-icon" style="top: 20px; left: 20px;" data-action="open-main">
+            <div class="desktop-icon-image">
+                <i data-lucide="folder"></i>
+            </div>
+            <div class="desktop-icon-label">Jordi Tubau</div>
+        </div>
+
+        <!-- Icono: Contacto -->
         <div class="desktop-icon" style="top: 20px; left: 120px;" data-action="open-contact">
-            <div class="desktop-icon-image">📬</div>
+            <div class="desktop-icon-image">
+                <i data-lucide="mail"></i>
+            </div>
             <div class="desktop-icon-label">Contacto.txt</div>
         </div>
 
-        <div class="desktop-icon" style="top: 20px; left: 20px;" data-action="open-main">
-            <div class="desktop-icon-image">📁</div>
-            <div class="desktop-icon-label">Jordi Tubau Martínez</div>
-        </div>
-
+        <!-- Icono: Juego -->
         <div class="desktop-icon" style="top: 120px; left: 20px;" data-action="open-game">
-            <div class="desktop-icon-image">🎮</div>
+            <div class="desktop-icon-image">
+                <i data-lucide="gamepad-2"></i>
+            </div>
             <div class="desktop-icon-label">Juego.exe</div>
         </div>
 
+        <!-- Icono: Imagen -->
         <div class="desktop-icon" style="top: 220px; left: 20px;" data-action="open-image">
-            <div class="desktop-icon-image">🖼️</div>
+            <div class="desktop-icon-image">
+                <i data-lucide="image"></i>
+            </div>
             <div class="desktop-icon-label">imagen.jpg</div>
         </div>
 
+        <!-- Icono: Papelera -->
         <div class="desktop-icon" style="top: 20px; right: 20px;" data-action="open-trash">
-            <div class="desktop-icon-image">🗑️</div>
+            <div class="desktop-icon-image">
+                <i data-lucide="trash-2"></i>
+            </div>
             <div class="desktop-icon-label">Papelera</div>
         </div>
 
-        <!-- Main Window -->
+        <!-- Ventana Principal (Explorador) -->
         <div class="window" id="window-main" style="left: 150px; top: 100px; width: 600px; height: 400px;">
             <div class="window-titlebar">
                 <div class="window-title">
-                    <span>📁</span>
-                    <span>Jordi Tubau Martínez</span>
+                    <i data-lucide="folder"></i>
+                    <span>Jordi Tubau</span>
                 </div>
                 <div class="window-controls">
                     <div class="window-button" onclick="closeWindow('window-main')">✕</div>
@@ -57,23 +75,16 @@
                     <button class="toolbar-button" id="back-button" onclick="navigateBack()" disabled>◄ Atrás</button>
                 </div>
                 <div class="explorer-content" id="explorer-content">
-                    <div class="file-icon" data-folder="quien-soy">
-                        <div class="file-icon-image">📂</div>
-                        <div class="file-icon-label">¿Quién soy?</div>
-                    </div>
-                    <div class="file-icon" data-folder="proyectos">
-                        <div class="file-icon-image">📂</div>
-                        <div class="file-icon-label">Proyectos</div>
-                    </div>
+                    <!-- Contenido generado dinámicamente por navigation.js -->
                 </div>
             </div>
         </div>
 
-        <!-- Game Window -->
+        <!-- Ventana del Juego -->
         <div class="window" id="window-game" style="left: 200px; top: 150px; width: 640px; height: 520px;">
             <div class="window-titlebar">
                 <div class="window-title">
-                    <span>🎮</span>
+                    <i data-lucide="gamepad-2"></i>
                     <span>Juego.exe - Space Invaders</span>
                 </div>
                 <div class="window-controls">
@@ -86,12 +97,19 @@
                     <div class="game-info">
                         <div>PUNTOS: <span id="score">0</span></div>
                     </div>
+                    <!-- Controles táctiles (solo móvil) -->
                     <div class="game-controls-mobile">
                         <div class="game-control-group">
                             <button class="game-control-btn" id="btn-left">◄</button>
                             <button class="game-control-btn" id="btn-right">►</button>
                         </div>
-                        <button class="game-control-btn shoot" id="btn-shoot">🚀</button>
+                        <button class="game-control-btn shoot" id="btn-shoot">&#x1F680;</button>
+                    </div>
+                    <!-- Panel de controles de teclado (solo desktop) -->
+                    <div class="game-controls-hint" id="game-controls-hint">
+                        <div class="hint-row"><kbd>←</kbd> <kbd>→</kbd> Mover</div>
+                        <div class="hint-row"><kbd>SPACE</kbd> Disparar</div>
+                        <div class="hint-row"><kbd>P</kbd> Pausa</div>
                     </div>
                     <div id="game-over-message" class="game-over" style="display: none;">
                         GAME OVER
@@ -102,11 +120,11 @@
             </div>
         </div>
 
-        <!-- Notepad Window -->
+        <!-- Ventana Bloc de Notas -->
         <div class="window" id="window-notepad" style="left: 250px; top: 150px; width: 650px; height: 500px;">
             <div class="window-titlebar">
                 <div class="window-title">
-                    <span>📄</span>
+                    <i data-lucide="file-text"></i>
                     <span id="notepad-title">Documento</span>
                 </div>
                 <div class="window-controls">
@@ -118,11 +136,11 @@
             </div>
         </div>
 
-        <!-- Project Window -->
+        <!-- Ventana de Proyecto -->
         <div class="window" id="window-project" style="left: 200px; top: 120px; width: 700px; height: 450px;">
             <div class="window-titlebar">
                 <div class="window-title">
-                    <span>🖼️</span>
+                    <i data-lucide="monitor"></i>
                     <span id="project-title">Proyecto</span>
                 </div>
                 <div class="window-controls">
@@ -137,17 +155,20 @@
                     <div class="project-info-container">
                         <div class="project-title" id="project-name">Nombre del Proyecto</div>
                         <div class="project-description" id="project-description">Descripción del proyecto...</div>
-                        <a id="project-url" class="project-link" href="#" target="_blank">🔗 Ver Proyecto</a>
+                        <a id="project-url" class="project-link" href="#" target="_blank">
+                            <i data-lucide="external-link"></i>
+                            <span>Ver Proyecto</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Trash Window -->
+        <!-- Ventana Papelera -->
         <div class="window" id="window-trash" style="left: 200px; top: 120px; width: 500px; height: 350px;">
             <div class="window-titlebar">
                 <div class="window-title">
-                    <span>🗑️</span>
+                    <i data-lucide="trash-2"></i>
                     <span>Papelera</span>
                 </div>
                 <div class="window-controls">
@@ -157,22 +178,22 @@
             <div class="window-content" style="padding: 0; display: flex; flex-direction: column;">
                 <div class="explorer-content" id="trash-content">
                     <div class="file-icon" data-trash-file="borrador.txt">
-                        <div class="file-icon-image">📄</div>
+                        <div class="file-icon-image"><i data-lucide="file-text"></i></div>
                         <div class="file-icon-label trash-file-label">borrador.txt</div>
                     </div>
                     <div class="file-icon" data-trash-image="deleted_photo.jpg">
-                        <div class="file-icon-image">🖼️</div>
+                        <div class="file-icon-image"><i data-lucide="image"></i></div>
                         <div class="file-icon-label trash-image-label">deleted_photo.jpg</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Contact Window -->
+        <!-- Ventana de Contacto -->
         <div class="window" id="window-contact" style="left: 300px; top: 200px; width: 500px; height: auto;">
             <div class="window-titlebar">
                 <div class="window-title">
-                    <span>📧</span>
+                    <i data-lucide="mail"></i>
                     <span>Contáctame</span>
                 </div>
                 <div class="window-controls">
@@ -205,11 +226,11 @@
             </div>
         </div>
 
-        <!-- Image Viewer Window -->
+        <!-- Ventana Visor de Imágenes -->
         <div class="window" id="window-image" style="left: 250px; top: 150px; width: 600px; height: 500px;">
             <div class="window-titlebar">
                 <div class="window-title">
-                    <span>🖼️</span>
+                    <i data-lucide="image"></i>
                     <span id="image-title">imagen.jpg</span>
                 </div>
                 <div class="window-controls">
@@ -222,19 +243,22 @@
                 </div>
             </div>
         </div>
+
     </div>
 
-    <!-- Taskbar -->
+    <!-- Barra de Tareas -->
     <div class="taskbar">
         <div class="taskbar-start">
             <button class="taskbar-button" onclick="openContactWindow()">
-                📧 <span class="text-contact">Contáctame</span>
+                <i data-lucide="mail"></i>
+                <span class="text-contact">Contáctame</span>
             </button>
         </div>
         <div class="taskbar-end">
             <div class="language-selector">
                 <button class="language-button" onclick="toggleLanguageDropdown()">
-                    🌍 <span id="current-language">ES</span>
+                    <i data-lucide="globe"></i>
+                    <span id="current-language">ES</span>
                 </button>
                 <div class="language-dropdown" id="language-dropdown">
                     <button class="language-option selected" onclick="changeLanguage('es')">

@@ -1,14 +1,66 @@
 /* ============================================
+   CSS VARIABLES — SISTEMA DE DISEÑO RETRO-OS
+   ============================================ */
+:root {
+    /* Colores del sistema */
+    --color-desktop:          #008080;
+    --color-win-bg:           #c0c0c0;
+    --color-win-bg-hover:     #d0d0d0;
+    --color-win-bg-active:    #a8a8a8;
+    --color-win-light:        #ffffff;
+    --color-win-dark:         #808080;
+    --color-win-border-out:   #dfdfdf;
+    --color-win-text:         #000000;
+    --color-title-start:      #000080;
+    --color-title-end:        #1084d0;
+    --color-selection:        rgba(0, 0, 128, 0.5);
+    --color-selection-border: rgba(0, 0, 128, 0.4);
+
+    /* Colores del juego */
+    --color-game-bg:          #000000;
+    --color-game-accent:      #00ff00;
+    --color-game-enemy:       #ff0000;
+    --color-game-bullet:      #ffff00;
+
+    /* Espaciado */
+    --taskbar-height:         32px;
+    --icon-size-desktop:      48px;
+    --icon-size-explorer:     36px;
+    --icon-size-title:        14px;
+
+    /* Bordes bisel estilo Windows 95 */
+    --border-raised:  2px solid;
+    --bevel-raised:   #dfdfdf #808080 #808080 #dfdfdf;
+    --bevel-button:   #ffffff #000000 #000000 #ffffff;
+    --bevel-pressed:  #000000 #ffffff #ffffff #000000;
+    --bevel-sunken:   #808080 #ffffff #ffffff #808080;
+
+    /* Sombras */
+    --shadow-window:  3px 3px 0 rgba(0,0,0,0.4);
+    --shadow-window-active: 4px 4px 0 rgba(0,0,0,0.5);
+
+    /* Tipografía */
+    --font-mono: 'Courier New', Courier, monospace;
+    --font-size-base: 11px;
+    --font-size-label: 11px;
+    --font-size-title: 12px;
+
+    /* Transiciones */
+    --transition-fast: 0.08s ease;
+    --transition-normal: 0.15s ease;
+}
+
+/* ============================================
    RESET Y CONFIGURACIÓN BASE
    ============================================ */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     overflow: hidden;
     cursor: default;
     user-select: none;
@@ -19,8 +71,8 @@ body {
    ============================================ */
 .desktop {
     width: 100vw;
-    height: calc(100vh - 32px);
-    background: #008080;
+    height: calc(100vh - var(--taskbar-height));
+    background-color: var(--color-desktop);
     background-image: url('../assets/background.png');
     background-size: cover;
     background-position: center;
@@ -29,76 +81,135 @@ body {
     overflow: hidden;
 }
 
+/* Capa scanlines muy sutil sobre el fondo */
+.desktop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0, 0, 0, 0.025) 3px,
+        rgba(0, 0, 0, 0.025) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Iconos y ventanas por encima de la capa scanlines */
+.desktop > .desktop-icon,
+.desktop > .window {
+    z-index: 1;
+}
+
 /* ============================================
    ICONOS DEL ESCRITORIO
    ============================================ */
 .desktop-icon {
     position: absolute;
-    width: 80px;
+    width: 84px;
     text-align: center;
     cursor: pointer;
-    padding: 8px;
+    padding: 8px 6px;
+    border: 1px solid transparent;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
 .desktop-icon:hover {
     background: rgba(0, 0, 128, 0.3);
-    outline: 1px dotted white;
+    border-color: rgba(255, 255, 255, 0.5);
+    outline: 1px dotted rgba(255, 255, 255, 0.8);
 }
 
 .desktop-icon.selected {
-    background: rgba(0, 0, 128, 0.5);
+    background: var(--color-selection);
     outline: 1px dotted white;
 }
 
 .desktop-icon-image {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 4px;
-    background: #c0c0c0;
-    border: 2px solid #808080;
+    width: var(--icon-size-desktop);
+    height: var(--icon-size-desktop);
+    margin: 0 auto 5px;
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-raised);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
+    transition: transform var(--transition-fast);
+}
+
+/* Hover: ligero zoom en el icono */
+.desktop-icon:hover .desktop-icon-image {
+    transform: scale(1.06);
+}
+
+/* Iconos Lucide en escritorio */
+.desktop-icon-image svg {
+    width: 30px;
+    height: 30px;
+    stroke: #1a1a2e;
+    stroke-width: 1.5;
+    fill: none;
 }
 
 .desktop-icon-label {
     color: white;
-    font-size: 11px;
-    text-shadow: 1px 1px 2px black;
+    font-size: var(--font-size-label);
+    font-family: var(--font-mono);
+    text-shadow: 1px 1px 2px black, -1px -1px 1px black;
     word-wrap: break-word;
+    line-height: 1.3;
 }
 
 /* ============================================
-   VENTANAS ESTILO WINDOWS 95
+   VENTANAS ESTILO WINDOWS 95/98
    ============================================ */
 .window {
     position: absolute;
     min-width: 400px;
     min-height: 300px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-raised);
+    box-shadow: var(--shadow-window);
     display: none;
+    z-index: 1;
+}
+
+/* Animación de apertura de ventana */
+@keyframes windowOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .window.active {
     display: block;
+    animation: windowOpen 0.1s ease-out;
+    box-shadow: var(--shadow-window-active);
 }
 
 /* Barra de título */
 .window-titlebar {
-    background: linear-gradient(to right, #000080, #1084d0);
+    background: linear-gradient(to right, var(--color-title-start), var(--color-title-end));
     color: white;
     padding: 3px 4px;
     font-weight: bold;
-    font-size: 12px;
+    font-size: var(--font-size-title);
+    font-family: var(--font-mono);
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: grab;
     user-select: none;
+    gap: 4px;
 }
 
 .window-titlebar:active {
@@ -108,7 +219,17 @@ body {
 .window-title {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
+}
+
+/* Iconos Lucide en barra de título */
+.window-title svg {
+    width: var(--icon-size-title);
+    height: var(--icon-size-title);
+    stroke: white;
+    stroke-width: 2;
+    fill: none;
+    flex-shrink: 0;
 }
 
 .window-controls {
@@ -119,20 +240,27 @@ body {
 .window-button {
     width: 18px;
     height: 18px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #ffffff #000000 #000000 #ffffff;
-    font-size: 10px;
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-button);
+    font-size: 9px;
     font-weight: bold;
+    font-family: var(--font-mono);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: var(--color-win-text);
+    line-height: 1;
+    transition: background var(--transition-fast);
+}
+
+.window-button:hover {
+    background: var(--color-win-bg-hover);
 }
 
 .window-button:active {
-    border-color: #000000 #ffffff #ffffff #000000;
+    border-color: var(--bevel-pressed);
     padding-top: 2px;
 }
 
@@ -149,28 +277,34 @@ body {
    EXPLORADOR DE ARCHIVOS
    ============================================ */
 .explorer-toolbar {
-    background: #c0c0c0;
+    background: var(--color-win-bg);
     padding: 4px;
-    border-bottom: 2px solid #808080;
+    border-bottom: 2px solid var(--color-win-dark);
     display: flex;
     gap: 4px;
 }
 
 .toolbar-button {
     padding: 4px 12px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #ffffff #000000 #000000 #ffffff;
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-button);
     cursor: pointer;
-    font-size: 11px;
+    font-size: var(--font-size-base);
+    font-family: var(--font-mono);
+    transition: background var(--transition-fast);
 }
 
-.toolbar-button:active {
-    border-color: #000000 #ffffff #ffffff #000000;
+.toolbar-button:hover:not(:disabled) {
+    background: var(--color-win-bg-hover);
+}
+
+.toolbar-button:active:not(:disabled) {
+    border-color: var(--bevel-pressed);
 }
 
 .toolbar-button:disabled {
-    color: #808080;
+    color: var(--color-win-dark);
     cursor: not-allowed;
 }
 
@@ -195,11 +329,16 @@ body {
     padding: 6px 4px;
     border: 1px solid transparent;
     border-radius: 2px;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
 .file-icon:hover {
     background: rgba(0, 0, 128, 0.1);
-    border: 1px solid rgba(0, 0, 128, 0.3);
+    border-color: rgba(0, 0, 128, 0.3);
+}
+
+.file-icon:hover .file-icon-image {
+    transform: scale(1.05);
 }
 
 .file-icon.selected {
@@ -209,17 +348,31 @@ body {
 }
 
 .file-icon-image {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     margin: 0 auto 8px;
-    font-size: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform var(--transition-fast);
+}
+
+/* Iconos Lucide en explorador de archivos */
+.file-icon-image svg {
+    width: var(--icon-size-explorer);
+    height: var(--icon-size-explorer);
+    stroke: #1a1a6e;
+    stroke-width: 1.5;
+    fill: none;
+}
+
+.file-icon.selected .file-icon-image svg {
+    stroke: white;
 }
 
 .file-icon-label {
-    font-size: 11px;
+    font-size: var(--font-size-label);
+    font-family: var(--font-mono);
     word-wrap: break-word;
     line-height: 1.3;
     padding: 0 2px;
@@ -232,12 +385,14 @@ body {
     width: 100%;
     height: 100%;
     border: none;
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-size: 12px;
-    padding: 4px;
+    padding: 8px;
     resize: none;
     background: white;
-    color: black;
+    color: var(--color-win-text);
+    line-height: 1.5;
+    outline: none;
 }
 
 /* ============================================
@@ -255,7 +410,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 2px solid #808080;
+    border-right: 2px solid var(--color-win-dark);
     padding: 16px;
 }
 
@@ -263,7 +418,7 @@ body {
     max-width: 100%;
     max-height: 100%;
     border: 2px solid #000;
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
 }
 
 .project-info-container {
@@ -272,46 +427,60 @@ body {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    gap: 12px;
 }
 
 .project-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
-    margin-bottom: 16px;
-    color: #000080;
+    color: var(--color-title-start);
+    font-family: var(--font-mono);
 }
 
 .project-description {
     font-size: 12px;
+    font-family: var(--font-mono);
     line-height: 1.6;
-    margin-bottom: 20px;
     flex: 1;
+    color: var(--color-win-text);
+    white-space: pre-wrap;
 }
 
 .project-link {
-    padding: 8px 16px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #ffffff #000000 #000000 #ffffff;
+    padding: 7px 14px;
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-button);
     cursor: pointer;
-    font-family: 'Courier New', monospace;
-    text-align: center;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-base);
     text-decoration: none;
-    color: black;
-    display: inline-block;
+    color: var(--color-win-text);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     align-self: flex-start;
+    transition: background var(--transition-fast);
+}
+
+.project-link svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
 }
 
 .project-link:hover {
-    background: #d0d0d0;
+    background: var(--color-win-bg-hover);
 }
 
 .project-link:active {
-    border-color: #000000 #ffffff #ffffff #000000;
+    border-color: var(--bevel-pressed);
 }
 
 /* ============================================
-   CANVAS DEL JUEGO
+   JUEGO — CANVAS Y CONTENEDOR
    ============================================ */
 .game-container {
     display: flex;
@@ -319,23 +488,26 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    background: black;
-    padding: 16px;
+    background: var(--color-game-bg);
+    padding: 12px;
     position: relative;
+    gap: 0;
 }
 
 .game-canvas {
-    border: 2px solid #00ff00;
-    background: black;
+    border: 2px solid var(--color-game-accent);
+    background: var(--color-game-bg);
+    display: block;
 }
 
 .game-info {
-    color: #00ff00;
-    font-family: 'Courier New', monospace;
-    margin-top: 12px;
+    color: var(--color-game-accent);
+    font-family: var(--font-mono);
+    margin-top: 10px;
     display: flex;
     gap: 24px;
-    font-size: 14px;
+    font-size: 13px;
+    letter-spacing: 1px;
 }
 
 .game-over {
@@ -343,44 +515,89 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ff0000;
-    font-size: 32px;
+    color: var(--color-game-enemy);
+    font-family: var(--font-mono);
+    font-size: 28px;
+    font-weight: bold;
     text-align: center;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 40px;
-    border: 4px solid #ff0000;
+    background: rgba(0, 0, 0, 0.92);
+    padding: 36px 48px;
+    border: 3px solid var(--color-game-enemy);
     z-index: 100;
+    letter-spacing: 2px;
 }
 
 .game-restart {
-    margin-top: 20px;
-    padding: 12px 24px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #ffffff #000000 #000000 #ffffff;
+    margin-top: 18px;
+    padding: 10px 22px;
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-button);
     cursor: pointer;
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
+    font-family: var(--font-mono);
+    font-size: 13px;
     font-weight: bold;
+    display: block;
+    width: 100%;
+    transition: background var(--transition-fast);
 }
 
 .game-restart:hover {
-    background: #d0d0d0;
+    background: var(--color-win-bg-hover);
 }
 
 .game-restart:active {
-    border-color: #000000 #ffffff #ffffff #000000;
+    border-color: var(--bevel-pressed);
+}
+
+/* Panel de controles de teclado (solo desktop) */
+.game-controls-hint {
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+    background: rgba(0, 12, 0, 0.78);
+    border: 1px solid rgba(0, 255, 0, 0.35);
+    padding: 6px 10px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: rgba(0, 255, 0, 0.85);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 5;
+    letter-spacing: 0.3px;
+}
+
+.game-controls-hint .hint-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.game-controls-hint .hint-row:last-child {
+    margin-bottom: 0;
+}
+
+.game-controls-hint kbd {
+    background: rgba(0, 255, 0, 0.15);
+    border: 1px solid rgba(0, 255, 0, 0.4);
+    padding: 1px 4px;
+    font-family: var(--font-mono);
+    font-size: 8px;
+    color: rgba(0, 255, 0, 0.9);
+    white-space: nowrap;
+}
+
+/* Controles móviles (ocultos por defecto) */
+.game-controls-mobile {
+    display: none !important;
 }
 
 /* ============================================
-   Z-INDEX MANAGEMENT
+   Z-INDEX — GESTIÓN DE CAPAS
    ============================================ */
 .window {
     z-index: 1;
-}
-
-.window.front {
-    z-index: 1000;
 }
 
 /* ============================================
@@ -391,9 +608,10 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 32px;
-    background: #c0c0c0;
-    border-top: 2px solid #ffffff;
+    height: var(--taskbar-height);
+    background: var(--color-win-bg);
+    border-top: 2px solid var(--color-win-light);
+    box-shadow: 0 -1px 0 var(--color-win-dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -407,34 +625,46 @@ body {
 }
 
 .taskbar-button {
-    padding: 4px 12px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #ffffff #000000 #000000 #ffffff;
+    padding: 3px 10px;
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-button);
     cursor: pointer;
-    font-size: 11px;
+    font-size: var(--font-size-base);
+    font-family: var(--font-mono);
     font-weight: bold;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
+    transition: background var(--transition-fast);
+}
+
+.taskbar-button svg {
+    width: 13px;
+    height: 13px;
+    stroke: var(--color-win-text);
+    stroke-width: 2;
+    fill: none;
+    flex-shrink: 0;
 }
 
 .taskbar-button:hover {
-    background: #d0d0d0;
+    background: var(--color-win-bg-hover);
 }
 
 .taskbar-button:active {
-    border-color: #000000 #ffffff #ffffff #000000;
-    padding-top: 6px;
-    padding-bottom: 2px;
+    border-color: var(--bevel-pressed);
+    padding-top: 5px;
+    padding-bottom: 1px;
 }
 
 .taskbar-clock {
     padding: 2px 8px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #808080 #ffffff #ffffff #808080;
-    font-size: 11px;
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-sunken);
+    font-size: var(--font-size-base);
+    font-family: var(--font-mono);
     min-width: 80px;
     text-align: center;
 }
@@ -445,29 +675,42 @@ body {
     align-items: center;
 }
 
+/* ============================================
+   SELECTOR DE IDIOMA
+   ============================================ */
 .language-selector {
     position: relative;
 }
 
 .language-button {
     padding: 2px 8px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #ffffff #000000 #000000 #ffffff;
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-button);
     cursor: pointer;
-    font-size: 11px;
+    font-size: var(--font-size-base);
+    font-family: var(--font-mono);
     font-weight: bold;
     display: flex;
     align-items: center;
     gap: 4px;
+    transition: background var(--transition-fast);
+}
+
+.language-button svg {
+    width: 13px;
+    height: 13px;
+    stroke: var(--color-win-text);
+    stroke-width: 2;
+    fill: none;
 }
 
 .language-button:hover {
-    background: #d0d0d0;
+    background: var(--color-win-bg-hover);
 }
 
 .language-button:active {
-    border-color: #000000 #ffffff #ffffff #000000;
+    border-color: var(--bevel-pressed);
 }
 
 .language-dropdown {
@@ -475,12 +718,12 @@ body {
     bottom: 100%;
     right: 0;
     margin-bottom: 2px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #dfdfdf #808080 #808080 #dfdfdf;
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-raised);
+    box-shadow: var(--shadow-window);
     display: none;
-    min-width: 100px;
+    min-width: 110px;
     z-index: 10001;
 }
 
@@ -491,14 +734,16 @@ body {
 .language-option {
     padding: 6px 12px;
     cursor: pointer;
-    font-size: 11px;
+    font-size: var(--font-size-base);
+    font-family: var(--font-mono);
     display: flex;
     align-items: center;
     gap: 6px;
     border: none;
-    background: #c0c0c0;
+    background: var(--color-win-bg);
     width: 100%;
     text-align: left;
+    transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .language-option:hover {
@@ -512,7 +757,7 @@ body {
 }
 
 /* ============================================
-   VENTANA DE CONTACTO
+   FORMULARIO DE CONTACTO
    ============================================ */
 .contact-form {
     padding: 16px;
@@ -522,7 +767,8 @@ body {
 }
 
 .contact-form label {
-    font-size: 11px;
+    font-size: var(--font-size-base);
+    font-family: var(--font-mono);
     font-weight: bold;
     margin-bottom: 4px;
     display: block;
@@ -531,12 +777,19 @@ body {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 4px;
+    padding: 4px 6px;
     border: 2px solid;
-    border-color: #808080 #ffffff #ffffff #808080;
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
+    border-color: var(--bevel-sunken);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-base);
     background: white;
+    outline: none;
+    transition: border-color var(--transition-fast);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #000080 white white #000080;
 }
 
 .contact-form textarea {
@@ -548,42 +801,27 @@ body {
     display: flex;
     gap: 8px;
     justify-content: flex-end;
-    margin-top: 8px;
+    margin-top: 4px;
 }
 
 .contact-form button {
-    padding: 6px 16px;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #ffffff #000000 #000000 #ffffff;
+    padding: 5px 16px;
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-button);
     cursor: pointer;
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-base);
     font-weight: bold;
+    transition: background var(--transition-fast);
 }
 
 .contact-form button:hover {
-    background: #d0d0d0;
+    background: var(--color-win-bg-hover);
 }
 
 .contact-form button:active {
-    border-color: #000000 #ffffff #ffffff #000000;
-}
-
-.contact-success {
-    padding: 16px;
-    text-align: center;
-    font-size: 12px;
-}
-
-.contact-success-icon {
-    font-size: 48px;
-    margin-bottom: 12px;
-}
-
-.contact-success-message {
-    margin-bottom: 16px;
-    line-height: 1.5;
+    border-color: var(--bevel-pressed);
 }
 
 /* ============================================
@@ -600,19 +838,7 @@ body {
 }
 
 .image-viewer img {
-    height: 450px;
-}
-
-/* ============================================
-   CONTROLES DEL JUEGO (MÓVIL)
-   ============================================ */
-/* Ocultar por defecto - solo se muestran en móvil */
-.game-controls-mobile {
-    display: none !important;
-}
-
-@media screen and (max-width: 768px) {
-    .game-controls-mobile {
-        display: flex !important;
-    }
+    max-height: 440px;
+    max-width: 100%;
+    object-fit: contain;
 }

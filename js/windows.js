@@ -101,18 +101,20 @@ function openNotepad(fileName, content) {
 
 // Ventana de proyecto
 function openProjectWindow(name, url, image, description) {
-    const projectWindow = document.getElementById('window-project');
-    const t = translations[currentLanguage];
-    
     document.getElementById('project-title').textContent = name;
     document.getElementById('project-name').textContent = name;
     document.getElementById('project-image').src = image;
     document.getElementById('project-description').textContent = description;
-    
+
     const projectLink = document.getElementById('project-url');
     projectLink.href = url;
-    projectLink.textContent = t.view_project;
-    
+    // Actualizar solo el texto del span, preservando el icono SVG
+    const linkSpan = projectLink.querySelector('span');
+    if (linkSpan) {
+        const t = translations[currentLanguage];
+        linkSpan.textContent = t.view_project;
+    }
+
     openWindow('window-project');
 }
 

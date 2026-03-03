@@ -6,247 +6,192 @@
 // Contenido de las carpetas
 const folderContents = {
     'main': [
-        { type: 'folder', name: '¿Quién soy?', id: 'quien-soy', icon: '📂' },
-        { type: 'folder', name: 'Proyectos', id: 'proyectos', icon: '📂' }
+        { type: 'folder', name: 'Sobre mí', id: 'quien-soy', icon: 'folder-open' },
+        { type: 'folder', name: 'Proyectos', id: 'proyectos', icon: 'folder-open' }
     ],
     'quien-soy': [
-        { 
-            type: 'file', 
-            name: 'Quien_soy.txt', 
-            icon: '📄', 
+        {
+            type: 'file',
+            name: 'Quien_soy.txt',
+            icon: 'file-text',
             content: {
-                es: `JORDI TUBAU MARTÍNEZ
-Desarrollador Web Full Stack
+                es: `¿QUIÉN SOY?
+═══════════════════════════════════════════
 
-Hola! Soy Jordi, un apasionado desarrollador web con experiencia en crear experiencias digitales únicas y funcionales.
+Hola! Soy Jordi Tubau Martínez, vivo en
+Barcelona y soy Técnico Superior en
+Desarrollo de Aplicaciones Multiplataforma.
 
-Me especializo en:
-- Desarrollo Frontend (HTML, CSS, JavaScript, React)
-- Desarrollo Backend (Node.js, Python, PHP)
-- Bases de datos (MySQL, MongoDB)
-- Diseño responsive y accesible
+Elegí el desarrollo web porque me gusta
+construir, mejorar y dar forma a ideas
+a través del código.
 
-Mi enfoque combina creatividad con código limpio y eficiente. Me encanta aprender nuevas tecnologías y enfrentar desafíos técnicos complejos.
+Me defino como una persona curiosa,
+constante y con ganas reales de seguir
+evolucionando. Cuando trabajo en un
+proyecto, me implico al máximo: me gusta
+entender el porqué de las cosas, buscar
+soluciones bien pensadas y aprender de
+cada reto que aparece.
 
-Cuando no estoy programando, probablemente estoy:
-- Jugando videojuegos retro 🎮
-- Explorando nuevos frameworks
-- Contribuyendo a proyectos open source
-- Tomando café ☕
+Valoro el trabajo en equipo, la comunicación
+clara y el compromiso. Busco seguir
+creciendo como desarrollador, ganar
+experiencia en proyectos reales y
+convertirme en un profesional cada vez
+más completo, tanto a nivel técnico
+como personal.`,
+                en: `ABOUT ME
+═══════════════════════════════════════════
 
-"El código es poesía en movimiento"`,
-                en: `JORDI TUBAU MARTÍNEZ
-Full Stack Web Developer
+Hi! I'm Jordi Tubau Martínez, I live in
+Barcelona and I'm a Higher Technician in
+Multiplatform Application Development.
 
-Hi! I'm Jordi, a passionate web developer with experience creating unique and functional digital experiences.
+I chose web development because I enjoy
+building, improving and shaping ideas
+through code.
 
-I specialize in:
-- Frontend Development (HTML, CSS, JavaScript, React)
-- Backend Development (Node.js, Python, PHP)
-- Databases (MySQL, MongoDB)
-- Responsive and accessible design
+I define myself as a curious, consistent
+person with a real desire to keep evolving.
+When I work on a project, I give it my all:
+I like understanding the why behind things,
+finding well-thought solutions and learning
+from every challenge that comes up.
 
-My approach combines creativity with clean and efficient code. I love learning new technologies and facing complex technical challenges.
-
-When I'm not coding, I'm probably:
-- Playing retro video games 🎮
-- Exploring new frameworks
-- Contributing to open source projects
-- Drinking coffee ☕
-
-"Code is poetry in motion"`
+I value teamwork, clear communication and
+commitment. I'm looking to keep growing
+as a developer, gain experience in real
+projects and become an increasingly complete
+professional, both technically and personally.`
             }
         },
-        { 
-            type: 'file', 
-            name: 'Experiencia.txt', 
-            icon: '📄', 
+        {
+            type: 'file',
+            name: 'CV.txt',
+            icon: 'file-text',
             content: {
-                es: `EXPERIENCIA PROFESIONAL
+                es: `╔═══════════════════════════════════════════╗
+║  JORDI TUBAU MARTÍNEZ                     ║
+║  Desarrollador Web Full Stack             ║
+╚═══════════════════════════════════════════╝
 
-═══════════════════════════════════════
+CONTACTO
+───────────────────────────────────────────
+✉  jorditubau24@gmail.com
+☎  +34 684 231 874
 
-DESARROLLADOR FULL STACK SENIOR
-TechCorp Solutions | 2021 - Presente
-• Lideré el desarrollo de 5+ aplicaciones web empresariales
-• Implementé arquitecturas escalables con microservicios
-• Reducí tiempos de carga en un 40% mediante optimización
-• Mentoricé a 3 desarrolladores junior
-
-DESARROLLADOR FRONTEND
-Digital Innovators | 2019 - 2021
-• Desarrollé interfaces de usuario interactivas con React
-• Colaboré con diseñadores UX/UI en 10+ proyectos
-• Implementé testing automatizado (Jest, Cypress)
-• Mejoré la accesibilidad web (WCAG 2.1)
-
-DESARROLLADOR WEB JUNIOR
-StartupLab | 2018 - 2019
-• Construí páginas web responsive desde cero
-• Mantuve y actualicé sitios web corporativos
-• Aprendí mejores prácticas de desarrollo ágil
-• Participé en revisiones de código y pair programming
-
-═══════════════════════════════════════
-
-HABILIDADES TÉCNICAS:
-Frontend: HTML5, CSS3, JavaScript (ES6+), React, Vue
-Backend: Node.js, Express, Python, Django
-Bases de datos: MySQL, PostgreSQL, MongoDB
-Herramientas: Git, Docker, Webpack, VS Code
-Metodologías: Agile, Scrum, TDD`,
-                en: `PROFESSIONAL EXPERIENCE
-
-═══════════════════════════════════════
-
-SENIOR FULL STACK DEVELOPER
-TechCorp Solutions | 2021 - Present
-• Led the development of 5+ enterprise web applications
-• Implemented scalable architectures with microservices
-• Reduced load times by 40% through optimization
-• Mentored 3 junior developers
-
-FRONTEND DEVELOPER
-Digital Innovators | 2019 - 2021
-• Developed interactive user interfaces with React
-• Collaborated with UX/UI designers on 10+ projects
-• Implemented automated testing (Jest, Cypress)
-• Improved web accessibility (WCAG 2.1)
-
-JUNIOR WEB DEVELOPER
-StartupLab | 2018 - 2019
-• Built responsive websites from scratch
-• Maintained and updated corporate websites
-• Learned agile development best practices
-• Participated in code reviews and pair programming
-
-═══════════════════════════════════════
-
-TECHNICAL SKILLS:
-Frontend: HTML5, CSS3, JavaScript (ES6+), React, Vue
-Backend: Node.js, Express, Python, Django
-Databases: MySQL, PostgreSQL, MongoDB
-Tools: Git, Docker, Webpack, VS Code
-Methodologies: Agile, Scrum, TDD`
-            }
-        },
-        { 
-            type: 'file', 
-            name: 'CV.txt', 
-            icon: '📄', 
-            content: {
-                es: `╔═══════════════════════════════════════╗
-║     CURRICULUM VITAE                  ║
-║     JORDI TUBAU MARTÍNEZ              ║
-╚═══════════════════════════════════════╝
-
-📧 Email: jordi.tubau@email.com
-🌐 Web: www.jorditubau.dev
-💼 LinkedIn: linkedin.com/in/jorditubau
-🐙 GitHub: github.com/jorditubau
-
-───────────────────────────────────────
-
-PERFIL PROFESIONAL
-
-Desarrollador web full stack con 5+ años de experiencia creando soluciones digitales innovadoras. Especializado en JavaScript moderno, frameworks frontend y arquitecturas backend escalables.
-
-───────────────────────────────────────
-
-EDUCACIÓN
-
-🎓 Ingeniería Informática
-Universidad Politécnica de Cataluña
-2014 - 2018
-
-📜 Certificaciones:
-• AWS Certified Developer Associate
-• MongoDB Certified Developer
-• React Developer Certification
-
-───────────────────────────────────────
+TECNOLOGÍAS
+───────────────────────────────────────────
+HTML · CSS · JavaScript · PHP · Angular
+Laravel · n8n · Node.js · MySQL · Java
+Git · Magento 2 · WordPress
 
 IDIOMAS
+───────────────────────────────────────────
+Catalán · Español · Inglés
 
-🇪🇸 Español - Nativo
-🇬🇧 Inglés - Avanzado (C1)
-🇫🇷 Francés - Intermedio (B1)
+FORMACIÓN
+───────────────────────────────────────────
+(2022-2025) Grado Superior de Desarrollo Web
+            UOC (Universitat Oberta de Catalunya)
 
-───────────────────────────────────────
+(2019-2021) Grado Superior de Animación 3D
+            La Salle Barceloneta
 
-PROYECTOS DESTACADOS
+(2017-2019) Grado Medio de Mantenimiento
+            Electromecánico
+            Escola Xarxa, Berga
 
-Ver carpeta "Proyectos" para más detalles
+EXPERIENCIA
+───────────────────────────────────────────
+Desarrollador Web Full Stack — TBB Agency
+2025 – Presente
+• Desarrollo de CMS a medida a partir de
+  diseños en Figma
+• Maquetación responsive con foco en detalle
+  visual, accesibilidad y rendimiento
+• Implementación de nuevas funcionalidades
+  sobre código existente
+• Mantenimiento y actualización de plugins
+  (seguridad, compatibilidad, estabilidad)
+• Optimización y refactorización de código
+  aplicando buenas prácticas
+• Colaboración con equipos de diseño y desarrollo
 
-───────────────────────────────────────
+Trabajador en Supermercado — HiperPas
+2022 – 2025
 
-INTERESES
+Cocinero — McDonald's | 2022
 
-• Desarrollo de videojuegos indie
-• Open Source contribution
-• Tecnologías emergentes (IA, Blockchain)
-• Arquitectura de software
-• UI/UX Design`,
-                en: `╔═══════════════════════════════════════╗
-║     CURRICULUM VITAE                  ║
-║     JORDI TUBAU MARTÍNEZ              ║
-╚═══════════════════════════════════════╝
+Generalista en Animación, Modelaje,
+Texturizado y Renderizado — Niji Mochis | 2021
 
-📧 Email: jordi.tubau@email.com
-🌐 Web: www.jorditubau.dev
-💼 LinkedIn: linkedin.com/in/jorditubau
-🐙 GitHub: github.com/jorditubau
+Ayudante de Electricista | 2018 – 2019`,
+                en: `╔═══════════════════════════════════════════╗
+║  JORDI TUBAU MARTÍNEZ                     ║
+║  Full Stack Web Developer                 ║
+╚═══════════════════════════════════════════╝
 
-───────────────────────────────────────
+CONTACT
+───────────────────────────────────────────
+✉  jorditubau24@gmail.com
+☎  +34 684 231 874
 
-PROFESSIONAL PROFILE
-
-Full stack web developer with 5+ years of experience creating innovative digital solutions. Specialized in modern JavaScript, frontend frameworks and scalable backend architectures.
-
-───────────────────────────────────────
-
-EDUCATION
-
-🎓 Computer Engineering
-Polytechnic University of Catalonia
-2014 - 2018
-
-📜 Certifications:
-• AWS Certified Developer Associate
-• MongoDB Certified Developer
-• React Developer Certification
-
-───────────────────────────────────────
+TECHNOLOGIES
+───────────────────────────────────────────
+HTML · CSS · JavaScript · PHP · Angular
+Laravel · n8n · Node.js · MySQL · Java
+Git · Magento 2 · WordPress
 
 LANGUAGES
+───────────────────────────────────────────
+Catalan · Spanish · English
 
-🇪🇸 Spanish - Native
-🇬🇧 English - Advanced (C1)
-🇫🇷 French - Intermediate (B1)
+EDUCATION
+───────────────────────────────────────────
+(2022-2025) Higher Degree in Web Development
+            UOC (Open University of Catalonia)
 
-───────────────────────────────────────
+(2019-2021) Higher Degree in 3D Animation
+            La Salle Barceloneta
 
-FEATURED PROJECTS
+(2017-2019) Middle Degree in Electromechanical
+            Maintenance
+            Escola Xarxa, Berga
 
-See "Projects" folder for more details
+EXPERIENCE
+───────────────────────────────────────────
+Full Stack Web Developer — TBB Agency
+2025 – Present
+• Custom CMS development from Figma designs
+• Responsive layout with focus on visual
+  detail, accessibility and performance
+• Implementation of new features on
+  existing code
+• Plugin maintenance and updates
+  (security, compatibility, stability)
+• Code optimization and refactoring
+  applying best practices
+• Collaboration with design and
+  development teams
 
-───────────────────────────────────────
+Supermarket Worker — HiperPas | 2022 – 2025
 
-INTERESTS
+Cook — McDonald's | 2022
 
-• Indie game development
-• Open Source contribution
-• Emerging technologies (AI, Blockchain)
-• Software architecture
-• UI/UX Design`
+Generalist in Animation, Modeling, Texturing
+and Rendering — Niji Mochis | 2021
+
+Electrician's Assistant | 2018 – 2019`
             }
         }
     ],
     'proyectos': [
-        { 
-            type: 'project', 
-            name: 'E-Commerce Platform', 
-            icon: '🖼️', 
+        {
+            type: 'project',
+            name: 'E-Commerce Platform',
+            icon: 'monitor',
             url: 'https://github.com',
             image: 'https://via.placeholder.com/400x300/4a90e2/ffffff?text=E-Commerce+Platform',
             description: {
@@ -254,10 +199,10 @@ INTERESTS
                 en: 'Complete e-commerce platform built with React and Node.js. Includes shopping cart, integrated payment system with Stripe, admin panel, real-time inventory management and user review system.\n\nTechnologies: React, Node.js, Express, MongoDB, Stripe API, JWT Authentication.'
             }
         },
-        { 
-            type: 'project', 
-            name: 'Task Manager App', 
-            icon: '🖼️', 
+        {
+            type: 'project',
+            name: 'Task Manager App',
+            icon: 'monitor',
             url: 'https://codepen.io',
             image: 'https://via.placeholder.com/400x300/7b68ee/ffffff?text=Task+Manager',
             description: {
@@ -265,10 +210,10 @@ INTERESTS
                 en: 'Task management application with drag & drop functionality, project organization, customizable tags and reminders. Intuitive interface with real-time synchronization.\n\nTechnologies: Vue.js, Firebase, Vuex, Tailwind CSS, PWA.'
             }
         },
-        { 
-            type: 'project', 
-            name: 'Portfolio Retro OS', 
-            icon: '🖼️', 
+        {
+            type: 'project',
+            name: 'Portfolio Retro OS',
+            icon: 'monitor',
             url: 'https://example.com',
             image: 'https://via.placeholder.com/400x300/008080/ffffff?text=Retro+OS+Portfolio',
             description: {

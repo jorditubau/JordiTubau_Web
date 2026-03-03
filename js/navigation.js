@@ -11,51 +11,51 @@ function renderFolder(folderId) {
     const content = folderContents[folderId];
     const container = document.getElementById('explorer-content');
     container.innerHTML = '';
-    
+
     const t = translations[currentLanguage];
 
     content.forEach(item => {
         const fileIcon = document.createElement('div');
         fileIcon.className = 'file-icon';
-        
+
         // Traducir nombres de carpetas y archivos
         let displayName = item.name;
-        
+
         if (folderId === 'main') {
             if (item.id === 'quien-soy') displayName = t.who_am_i;
             if (item.id === 'proyectos') displayName = t.projects;
         }
-        
+
         if (folderId === 'quien-soy') {
             if (item.name === 'Quien_soy.txt') displayName = t.who_file;
-            if (item.name === 'Experiencia.txt') displayName = t.experience_file;
             if (item.name === 'CV.txt') displayName = t.cv_file;
         }
-        
+
         if (folderId === 'proyectos') {
             if (item.name === 'E-Commerce Platform') displayName = t.project1;
             if (item.name === 'Task Manager App') displayName = t.project2;
             if (item.name === 'Portfolio Retro OS') displayName = t.project3;
         }
-        
+
         if (item.type === 'folder') {
             fileIcon.setAttribute('data-folder', item.id);
         } else if (item.type === 'file') {
             fileIcon.setAttribute('data-file', item.name);
-            fileIcon.setAttribute('data-content', 
+            fileIcon.setAttribute('data-content',
                 typeof item.content === 'object' ? JSON.stringify(item.content) : item.content
             );
         } else if (item.type === 'project') {
             fileIcon.setAttribute('data-project-name', item.name);
             fileIcon.setAttribute('data-project-url', item.url);
             fileIcon.setAttribute('data-project-image', item.image);
-            fileIcon.setAttribute('data-project-description', 
+            fileIcon.setAttribute('data-project-description',
                 typeof item.description === 'object' ? JSON.stringify(item.description) : item.description
             );
         }
 
+        // Renderizar icono Lucide y etiqueta
         fileIcon.innerHTML = `
-            <div class="file-icon-image">${item.icon}</div>
+            <div class="file-icon-image"><i data-lucide="${item.icon}"></i></div>
             <div class="file-icon-label">${displayName}</div>
         `;
 
@@ -64,6 +64,11 @@ function renderFolder(folderId) {
 
     currentFolder = folderId;
     updateBackButton();
+
+    // Inicializar los iconos Lucide recién añadidos
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 }
 
 // Navegar hacia atrás
@@ -114,7 +119,7 @@ function handleDoubleClick(fileIcon) {
     else if (fileIcon.hasAttribute('data-file')) {
         const fileName = fileIcon.getAttribute('data-file');
         const contentData = fileIcon.getAttribute('data-content');
-        
+
         let content;
         try {
             const parsed = JSON.parse(contentData);
@@ -122,7 +127,7 @@ function handleDoubleClick(fileIcon) {
         } catch {
             content = contentData;
         }
-        
+
         openNotepad(fileName, content);
     }
     else if (fileIcon.hasAttribute('data-project-name')) {
@@ -130,7 +135,7 @@ function handleDoubleClick(fileIcon) {
         const url = fileIcon.getAttribute('data-project-url');
         const image = fileIcon.getAttribute('data-project-image');
         const descriptionData = fileIcon.getAttribute('data-project-description');
-        
+
         let description;
         try {
             const parsed = JSON.parse(descriptionData);
@@ -138,7 +143,7 @@ function handleDoubleClick(fileIcon) {
         } catch {
             description = descriptionData;
         }
-        
+
         openProjectWindow(name, url, image, description);
     }
 }
@@ -169,21 +174,23 @@ document.getElementById('trash-content').addEventListener('click', (e) => {
 
 function handleTrashDoubleClick(fileIcon) {
     const t = translations[currentLanguage];
-    
+
     if (fileIcon.hasAttribute('data-trash-file')) {
         const fileName = t.trash_file;
-        const content = currentLanguage === 'es' 
+        const content = currentLanguage === 'es'
             ? `ARCHIVO ELIMINADO
 ═══════════════════════════════════════
 
-"A veces hay que eliminar cosas para hacer espacio a lo nuevo"
+"A veces hay que eliminar cosas para
+hacer espacio a lo nuevo"
 
 ═══════════════════════════════════════
 Fecha de eliminación: 14/02/2026`
             : `DELETED FILE
 ═══════════════════════════════════════
 
-"Sometimes you have to delete things to make room for the new"
+"Sometimes you have to delete things
+to make room for the new"
 
 ═══════════════════════════════════════
 Deletion date: 02/14/2026`;
@@ -195,7 +202,6 @@ Deletion date: 02/14/2026`;
 }
 
 function openTrashImageWindow() {
-    const imageWindow = document.getElementById('window-image');
     const t = translations[currentLanguage];
     document.getElementById('image-display').src = 'assets/foto2.jpg';
     document.getElementById('image-title').textContent = `${t.trash_image} - ${t.image_viewer}`;
