@@ -379,17 +379,18 @@ function togglePause() {
 }
 
 function drawPauseOverlay() {
+    const t = translations[currentLanguage];
     ctx.fillStyle = 'rgba(0, 0, 0, 0.72)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = '#00ff00';
     ctx.font      = 'bold 24px Courier New';
     ctx.textAlign = 'center';
-    ctx.fillText('PAUSADO', canvas.width / 2, canvas.height / 2 - 16);
+    ctx.fillText(t.paused, canvas.width / 2, canvas.height / 2 - 16);
 
     ctx.font      = '13px Courier New';
     ctx.fillStyle = 'rgba(0, 255, 0, 0.75)';
-    ctx.fillText('Pulsa P para continuar', canvas.width / 2, canvas.height / 2 + 16);
+    ctx.fillText(t.paused_continue, canvas.width / 2, canvas.height / 2 + 16);
     ctx.textAlign = 'left';
 }
 

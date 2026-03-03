@@ -111,14 +111,14 @@
                     </div>
                     <!-- Panel de controles de teclado (solo desktop) -->
                     <div class="game-controls-hint" id="game-controls-hint">
-                        <div class="hint-row"><kbd>←</kbd> <kbd>→</kbd> Mover</div>
-                        <div class="hint-row"><kbd>SPACE</kbd> Disparar</div>
-                        <div class="hint-row"><kbd>P</kbd> Pausa</div>
+                        <div class="hint-row"><kbd>←</kbd> <kbd>→</kbd> <span id="hint-move">Mover</span></div>
+                        <div class="hint-row"><kbd>SPACE</kbd> <span id="hint-shoot">Disparar</span></div>
+                        <div class="hint-row"><kbd>P</kbd> <span id="hint-pause">Pausa</span></div>
                     </div>
                     <div id="game-over-message" class="game-over" style="display: none;">
                         GAME OVER
                         <br>
-                        <button class="game-restart" onclick="restartGame()">REINICIAR</button>
+                        <button class="game-restart" id="btn-restart" onclick="restartGame()">REINICIAR</button>
                     </div>
                 </div>
             </div>

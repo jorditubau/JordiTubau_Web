@@ -48,6 +48,11 @@ const translations = {
         score: 'PUNTOS',
         game_over: 'GAME OVER',
         restart: 'REINICIAR',
+        controls_move: 'Mover',
+        controls_shoot: 'Disparar',
+        controls_pause: 'Pausa',
+        paused: 'PAUSADO',
+        paused_continue: 'Pulsa P para continuar',
 
         // Visor de imágenes
         image_viewer: 'Visor de Imágenes'
@@ -60,7 +65,7 @@ const translations = {
         trash: 'Recycle Bin',
         contact_file: 'Contact.txt',
         game: 'Game.exe',
-        image: 'FotoCV.jpg',
+        image: 'PhotoCV.jpg',
         main_folder: 'Jordi Tubau',
 
         // Main folders
@@ -96,6 +101,11 @@ const translations = {
         score: 'SCORE',
         game_over: 'GAME OVER',
         restart: 'RESTART',
+        controls_move: 'Move',
+        controls_shoot: 'Shoot',
+        controls_pause: 'Pause',
+        paused: 'PAUSED',
+        paused_continue: 'Press P to continue',
 
         // Image viewer
         image_viewer: 'Image Viewer'

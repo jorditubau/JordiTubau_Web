@@ -67,12 +67,24 @@ function applyTranslations() {
         scoreLabel.innerHTML = `${t.score}: <span id="score">${scoreValue}</span>`;
     }
 
+    // Controles de teclado (hint)
+    const hintMove  = document.getElementById('hint-move');
+    const hintShoot = document.getElementById('hint-shoot');
+    const hintPause = document.getElementById('hint-pause');
+    if (hintMove)  hintMove.textContent  = t.controls_move;
+    if (hintShoot) hintShoot.textContent = t.controls_shoot;
+    if (hintPause) hintPause.textContent = t.controls_pause;
+
+    // Botón reiniciar (siempre actualizado)
+    const btnRestart = document.getElementById('btn-restart');
+    if (btnRestart) btnRestart.textContent = t.restart;
+
     const gameOverDiv = document.getElementById('game-over-message');
     if (gameOverDiv && gameOverDiv.style.display !== 'none') {
         gameOverDiv.innerHTML = `
             ${t.game_over}
             <br>
-            <button class="game-restart" onclick="restartGame()">${t.restart}</button>
+            <button class="game-restart" id="btn-restart" onclick="restartGame()">${t.restart}</button>
         `;
     }
 
