@@ -222,6 +222,18 @@
         min-height: 44px;
     }
 
+    /* Visor de imágenes móvil */
+    .image-viewer {
+        overflow: hidden;
+    }
+
+    .image-viewer img {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+
     /* Visor de proyectos móvil */
     .project-window-content {
         flex-direction: column;

@@ -27,7 +27,7 @@ construir, mejorar y dar forma a ideas
 a través del código.
 
 Me defino como una persona curiosa,
-constante y con ganas reales de seguir
+constante y con ganas de seguir
 evolucionando. Cuando trabajo en un
 proyecto, me implico al máximo: me gusta
 entender el porqué de las cosas, buscar
@@ -53,7 +53,7 @@ building, improving and shaping ideas
 through code.
 
 I define myself as a curious, consistent
-person with a real desire to keep evolving.
+person with a desire to keep evolving.
 When I work on a project, I give it my all:
 I like understanding the why behind things,
 finding well-thought solutions and learning

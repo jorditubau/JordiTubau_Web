@@ -32,7 +32,7 @@ const translations = {
 
         // Papelera
         trash_file: 'borrador.txt',
-        trash_image: 'img_2025.jpg',
+        trash_image: 'img_2009.jpg',
 
         // Ventana de contacto
         contact_window_title: 'Contáctame',
@@ -85,7 +85,7 @@ const translations = {
 
         // Trash
         trash_file: 'draft.txt',
-        trash_image: 'img_2025.jpg',
+        trash_image: 'img_2009.jpg',
 
         // Contact window
         contact_window_title: 'Contact Me',
