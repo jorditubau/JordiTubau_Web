@@ -3,7 +3,7 @@
  * Contenido de carpetas, archivos y proyectos
  */
 
-// Contenido de las carpeta
+// Contenido de las carpetas
 const folderContents = {
     'main': [
         { type: 'folder', name: 'Sobre mí', id: 'quien-soy', icon: 'folder-open' },
