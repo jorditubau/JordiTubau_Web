@@ -33,6 +33,10 @@
 
 /* ── Móviles (hasta 768px) ─────────────────── */
 @media screen and (max-width: 768px) {
+    .video-expand-btn {
+        display: none !important;
+    }
+
     body {
         user-select: none;
         -webkit-user-select: none;

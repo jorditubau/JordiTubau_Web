@@ -71,10 +71,10 @@ professional, both technically and personally.`
             name: 'CV.txt',
             icon: 'file-text',
             content: {
-                es: `╔═══════════════════════════════════════════╗
-║  JORDI TUBAU MARTÍNEZ                     ║
-║  Desarrollador Web Full Stack             ║
-╚═══════════════════════════════════════════╝
+                es: `
+  JORDI TUBAU MARTÍNEZ                     
+  Desarrollador Web Full Stack             
+═══════════════════════════════════════════
 
 CONTACTO
 ───────────────────────────────────────────
@@ -128,10 +128,10 @@ Generalista en Animación, Modelaje,
 Texturizado y Renderizado — Niji Mochis | 2021
 
 Ayudante de Electricista | 2018 – 2019`,
-                en: `╔═══════════════════════════════════════════╗
-║  JORDI TUBAU MARTÍNEZ                     ║
-║  Full Stack Web Developer                 ║
-╚═══════════════════════════════════════════╝
+                en: `
+  JORDI TUBAU MARTÍNEZ                     
+  Full Stack Web Developer                 
+═══════════════════════════════════════════
 
 CONTACT
 ───────────────────────────────────────────
