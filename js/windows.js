@@ -129,7 +129,9 @@ function openProjectWindow(name, url, image, video, description) {
     }
 
     // Resetear expansión al abrir un proyecto nuevo
-    document.getElementById('project-image-container').classList.remove('expanded');
+    const container = document.getElementById('project-image-container');
+    container.classList.remove('expanded');
+    container.nextElementSibling.style.display = '';
     const expandBtn = document.getElementById('video-expand-btn');
     expandBtn.innerHTML = '<i data-lucide="maximize-2"></i>';
     lucide.createIcons({ nodes: [expandBtn] });
