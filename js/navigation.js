@@ -48,6 +48,7 @@ function renderFolder(folderId) {
             fileIcon.setAttribute('data-project-name', item.name);
             fileIcon.setAttribute('data-project-url', item.url);
             fileIcon.setAttribute('data-project-image', item.image);
+            fileIcon.setAttribute('data-project-video', item.video || '');
             fileIcon.setAttribute('data-project-description',
                 typeof item.description === 'object' ? JSON.stringify(item.description) : item.description
             );
@@ -136,6 +137,7 @@ function handleDoubleClick(fileIcon) {
         const name = fileIcon.getAttribute('data-project-name');
         const url = fileIcon.getAttribute('data-project-url');
         const image = fileIcon.getAttribute('data-project-image');
+        const video = fileIcon.getAttribute('data-project-video');
         const descriptionData = fileIcon.getAttribute('data-project-description');
 
         let description;
@@ -146,7 +148,7 @@ function handleDoubleClick(fileIcon) {
             description = descriptionData;
         }
 
-        openProjectWindow(name, url, image, description);
+        openProjectWindow(name, url, image, video, description);
     }
 }
 

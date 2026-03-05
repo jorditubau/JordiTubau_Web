@@ -405,13 +405,55 @@ body {
 }
 
 .project-image-container {
-    flex: 0 0 300px;
+    flex: 0 0 650px;
     background: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
     border-right: 2px solid var(--color-win-dark);
     padding: 16px;
+    position: relative;
+    transition: flex-basis 0.2s ease;
+}
+
+.project-image-container.expanded {
+    flex: 1 1 100%;
+    border-right: none;
+}
+
+.video-expand-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
+    background: var(--color-win-bg);
+    border: var(--border-raised);
+    border-color: var(--bevel-button);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+}
+
+.video-expand-btn:hover {
+    opacity: 1;
+    background: var(--color-win-bg-hover);
+}
+
+.video-expand-btn:active {
+    border-color: var(--bevel-pressed);
+}
+
+.video-expand-btn svg {
+    width: 13px;
+    height: 13px;
+    stroke: var(--color-win-text);
+    stroke-width: 2;
+    fill: none;
 }
 
 .project-image {
@@ -423,7 +465,7 @@ body {
 
 .project-info-container {
     flex: 1;
-    padding: 20px;
+    padding: 32px 20px 20px 20px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -431,7 +473,7 @@ body {
 }
 
 .project-title {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
     color: var(--color-title-start);
     font-family: var(--font-mono);
@@ -447,19 +489,19 @@ body {
 }
 
 .project-link {
-    padding: 7px 14px;
+    padding: 10px 20px;
     background: var(--color-win-bg);
     border: var(--border-raised);
     border-color: var(--bevel-button);
     cursor: pointer;
     font-family: var(--font-mono);
-    font-size: var(--font-size-base);
+    font-size: 13px;
     text-decoration: none;
     color: var(--color-win-text);
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    align-self: flex-start;
+    gap: 7px;
+    align-self: flex-end;
     transition: background var(--transition-fast);
 }
 

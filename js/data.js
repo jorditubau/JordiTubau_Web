@@ -190,35 +190,26 @@ Electrician's Assistant | 2018 – 2019`
     'proyectos': [
         {
             type: 'project',
-            name: 'E-Commerce Platform',
+            name: 'CVCraft',
             icon: 'monitor',
-            url: 'https://github.com',
-            image: 'https://via.placeholder.com/400x300/4a90e2/ffffff?text=E-Commerce+Platform',
+            url: 'https://github.com/jorditubau/cv-generator',
+            image: 'https://via.placeholder.com/400x300/4a90e2/ffffff?text=CVCraft',
+            video: 'assets/cv_craft_vid.mp4',
             description: {
-                es: 'Plataforma completa de comercio electrónico construida con React y Node.js. Incluye carrito de compras, sistema de pagos integrado con Stripe, panel de administración, gestión de inventario en tiempo real y sistema de reseñas de usuarios.\n\nTecnologías: React, Node.js, Express, MongoDB, Stripe API, JWT Authentication.',
-                en: 'Complete e-commerce platform built with React and Node.js. Includes shopping cart, integrated payment system with Stripe, admin panel, real-time inventory management and user review system.\n\nTechnologies: React, Node.js, Express, MongoDB, Stripe API, JWT Authentication.'
+                es: 'Aplicación web para crear CVs profesionales sin registro. El usuario rellena un formulario intuitivo y ve su currículum actualizarse en tiempo real en tres templates distintos: clásico, moderno y minimal. Permite exportar a PDF, compartir el CV mediante una URL codificada y guarda el progreso automáticamente en el navegador.\n\nTecnologías:\nReact · TypeScript · Tailwind CSS · Zustand · react-hook-form · jsPDF · html2canvas · dnd-kit',
+                en: 'Web application to create professional CVs with no registration. The user fills out an intuitive form and sees their résumé update in real time across three distinct templates: classic, modern and minimal. Supports PDF export, CV sharing via encoded URL, and automatically saves progress in the browser.\n\nTechnologies:\nReact · TypeScript · Tailwind CSS · Zustand · react-hook-form · jsPDF · html2canvas · dnd-kit'
             }
         },
         {
             type: 'project',
-            name: 'Task Manager App',
+            name: 'FocusFlow',
             icon: 'monitor',
-            url: 'https://codepen.io',
-            image: 'https://via.placeholder.com/400x300/7b68ee/ffffff?text=Task+Manager',
+            url: 'https://github.com/jorditubau/suite-productividad-pomodoro/tree/main',
+            image: 'https://via.placeholder.com/400x300/7b68ee/ffffff?text=FocusFlow',
+            video: 'assets/focusflow_vid.mp4',
             description: {
-                es: 'Aplicación de gestión de tareas con funcionalidad drag & drop, organización por proyectos, etiquetas personalizables y recordatorios. Interfaz intuitiva con sincronización en tiempo real.\n\nTecnologías: Vue.js, Firebase, Vuex, Tailwind CSS, PWA.',
-                en: 'Task management application with drag & drop functionality, project organization, customizable tags and reminders. Intuitive interface with real-time synchronization.\n\nTechnologies: Vue.js, Firebase, Vuex, Tailwind CSS, PWA.'
-            }
-        },
-        {
-            type: 'project',
-            name: 'Portfolio Retro OS',
-            icon: 'monitor',
-            url: 'https://example.com',
-            image: 'https://via.placeholder.com/400x300/008080/ffffff?text=Retro+OS+Portfolio',
-            description: {
-                es: 'Portfolio interactivo con estética de sistema operativo retro Windows 95/98. Sistema de ventanas completo, explorador de archivos, minijuego integrado y navegación tipo escritorio.\n\nTecnologías: HTML5, CSS3, JavaScript Vanilla, Canvas API.',
-                en: 'Interactive portfolio with retro Windows 95/98 operating system aesthetics. Complete window system, file explorer, integrated mini-game and desktop-style navigation.\n\nTechnologies: HTML5, CSS3, Vanilla JavaScript, Canvas API.'
+                es: 'Suite de productividad completa basada en la técnica Pomodoro. Incluye temporizador con anillo de progreso animado, gestión de tareas con drag & drop, sonidos de ambiente (lluvia, cafetería, bosque) y un dashboard de estadísticas con gráficos de actividad semanal y mapa de calor tipo GitHub. Todo funciona offline y guarda el historial completo en el navegador.\n\nTecnologías:\nReact · TypeScript · Tailwind CSS · Zustand · dnd-kit · Howler.js · Recharts',
+                en: 'Full productivity suite based on the Pomodoro technique. Includes a timer with animated progress ring, drag & drop task management, ambient sounds (rain, café, forest) and a statistics dashboard with weekly activity charts and a GitHub-style heatmap. Everything works offline and saves the full history in the browser.\n\nTechnologies:\nReact · TypeScript · Tailwind CSS · Zustand · dnd-kit · Howler.js · Recharts'
             }
         }
     ]

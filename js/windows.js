@@ -100,11 +100,24 @@ function openNotepad(fileName, content) {
 }
 
 // Ventana de proyecto
-function openProjectWindow(name, url, image, description) {
+function openProjectWindow(name, url, image, video, description) {
     document.getElementById('project-title').textContent = name;
     document.getElementById('project-name').textContent = name;
-    document.getElementById('project-image').src = image;
     document.getElementById('project-description').textContent = description;
+
+    const imgEl = document.getElementById('project-image');
+    const videoEl = document.getElementById('project-video');
+
+    if (video) {
+        videoEl.querySelector('source').src = video;
+        videoEl.load();
+        videoEl.style.display = 'block';
+        imgEl.style.display = 'none';
+    } else {
+        imgEl.src = image;
+        imgEl.style.display = 'block';
+        videoEl.style.display = 'none';
+    }
 
     const projectLink = document.getElementById('project-url');
     projectLink.href = url;
@@ -115,7 +128,23 @@ function openProjectWindow(name, url, image, description) {
         linkSpan.textContent = t.view_project;
     }
 
+    // Resetear expansión al abrir un proyecto nuevo
+    document.getElementById('project-image-container').classList.remove('expanded');
+    const expandBtn = document.getElementById('video-expand-btn');
+    expandBtn.innerHTML = '<i data-lucide="maximize-2"></i>';
+    lucide.createIcons({ nodes: [expandBtn] });
+
     openWindow('window-project');
+}
+
+function toggleVideoExpand() {
+    const container = document.getElementById('project-image-container');
+    const infoPanel = container.nextElementSibling;
+    const btn = document.getElementById('video-expand-btn');
+    const isExpanded = container.classList.toggle('expanded');
+    infoPanel.style.display = isExpanded ? 'none' : '';
+    btn.innerHTML = isExpanded ? '<i data-lucide="minimize-2"></i>' : '<i data-lucide="maximize-2"></i>';
+    lucide.createIcons({ nodes: [btn] });
 }
 
 // Visor de imágenes

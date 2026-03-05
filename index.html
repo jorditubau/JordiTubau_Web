@@ -141,7 +141,7 @@
         </div>
 
         <!-- Ventana de Proyecto -->
-        <div class="window" id="window-project" style="left: 200px; top: 120px; width: 700px; height: 450px;">
+        <div class="window" id="window-project" style="left: 110px; top: 40px; width: 1000px; height: 680px;">
             <div class="window-titlebar">
                 <div class="window-title">
                     <i data-lucide="monitor"></i>
@@ -153,8 +153,14 @@
             </div>
             <div class="window-content" style="padding: 0;">
                 <div class="project-window-content">
-                    <div class="project-image-container">
+                    <div class="project-image-container" id="project-image-container">
                         <img id="project-image" class="project-image" src="" alt="Project Preview">
+                        <video id="project-video" class="project-image" autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" style="display:none; pointer-events:none;">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <button class="video-expand-btn" id="video-expand-btn" onclick="toggleVideoExpand()" title="Ampliar">
+                            <i data-lucide="maximize-2"></i>
+                        </button>
                     </div>
                     <div class="project-info-container">
                         <div class="project-title" id="project-name">Nombre del Proyecto</div>
