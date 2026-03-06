@@ -127,9 +127,10 @@ Cocinero — McDonald's | 2022
 Generalista en Animación, Modelaje,
 Texturizado y Renderizado — Niji Mochis | 2021
 
+Ayudante de Electricista | 2018 – 2019
 
 
-Ayudante de Electricista | 2018 – 2019`,
+`,
                 en: `
   JORDI TUBAU MARTÍNEZ                     
   Full Stack Web Developer                 
@@ -185,9 +186,10 @@ Cook — McDonald's | 2022
 Generalist in Animation, Modeling, Texturing
 and Rendering — Niji Mochis | 2021
 
+Electrician's Assistant | 2018 – 2019
 
 
-Electrician's Assistant | 2018 – 2019`
+`
             }
         }
     ],
