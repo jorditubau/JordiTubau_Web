@@ -45,8 +45,7 @@ como personal.`,
 ═══════════════════════════════════════════
 
 Hi! I'm Jordi Tubau Martínez, I live in
-Barcelona and I'm a Higher Technician in
-Multiplatform Application Development.
+Barcelona and I'm a Web Developer.
 
 I chose web development because I enjoy
 building, improving and shaping ideas
