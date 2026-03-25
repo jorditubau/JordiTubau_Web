@@ -124,14 +124,16 @@ function handleDoubleClick(fileIcon) {
         const contentData = fileIcon.getAttribute('data-content');
 
         let content;
+        let contentObj = null;
         try {
             const parsed = JSON.parse(contentData);
+            contentObj = parsed;
             content = parsed[currentLanguage] || parsed.es || contentData;
         } catch {
             content = contentData;
         }
 
-        openNotepad(fileName, content);
+        openNotepad(fileName, content, contentObj);
     }
     else if (fileIcon.hasAttribute('data-project-name')) {
         const name = fileIcon.getAttribute('data-project-name');
@@ -141,14 +143,16 @@ function handleDoubleClick(fileIcon) {
         const descriptionData = fileIcon.getAttribute('data-project-description');
 
         let description;
+        let descriptionObj = null;
         try {
             const parsed = JSON.parse(descriptionData);
+            descriptionObj = parsed;
             description = parsed[currentLanguage] || parsed.es || descriptionData;
         } catch {
             description = descriptionData;
         }
 
-        openProjectWindow(name, url, image, video, description);
+        openProjectWindow(name, url, image, video, description, descriptionObj);
     }
 }
 

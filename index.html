@@ -8,6 +8,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Jordi Tubau - Portfolio Retro de Desarrollador Web Full Stack">
     <title>Jordi Tubau - Portfolio OS</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -141,7 +142,7 @@
         </div>
 
         <!-- Ventana de Proyecto -->
-        <div class="window" id="window-project" style="left: 110px; top: 40px; width: 1000px; height: 680px;">
+        <div class="window" id="window-project" style="left: 110px; top: 40px; width: 1000px; height: 630px;">
             <div class="window-titlebar">
                 <div class="window-title">
                     <i data-lucide="monitor"></i>
@@ -271,10 +272,10 @@
                     <span id="current-language">ES</span>
                 </button>
                 <div class="language-dropdown" id="language-dropdown">
-                    <button class="language-option selected" onclick="changeLanguage('es')">
+                    <button class="language-option selected" onclick="changeLanguage('es', this)">
                         🇪🇸 Español
                     </button>
-                    <button class="language-option" onclick="changeLanguage('en')">
+                    <button class="language-option" onclick="changeLanguage('en', this)">
                         🇬🇧 English
                     </button>
                 </div>

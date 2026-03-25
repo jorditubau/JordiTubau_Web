@@ -92,15 +92,22 @@ document.addEventListener('mouseup', () => {
 });
 
 // Bloc de notas
-function openNotepad(fileName, content) {
-    const notepadWindow = document.getElementById('window-notepad');
+let currentNotepadData = null;
+
+function openNotepad(fileName, content, contentObj) {
+    currentNotepadData = { fileName, contentObj };
     document.getElementById('notepad-title').textContent = fileName;
     document.getElementById('notepad-content').value = content;
     openWindow('window-notepad');
 }
 
+// Proyecto activo (para actualizar al cambiar idioma)
+let currentProjectData = null;
+
 // Ventana de proyecto
-function openProjectWindow(name, url, image, video, description) {
+function openProjectWindow(name, url, image, video, description, descriptionObj) {
+    currentProjectData = { name, url, image, video, description, descriptionObj };
+
     document.getElementById('project-title').textContent = name;
     document.getElementById('project-name').textContent = name;
     document.getElementById('project-description').textContent = description;

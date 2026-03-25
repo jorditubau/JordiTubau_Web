@@ -10,7 +10,7 @@ function toggleLanguageDropdown() {
     dropdown.classList.toggle('active');
 }
 
-function changeLanguage(lang) {
+function changeLanguage(lang, el) {
     currentLanguage = lang;
 
     document.getElementById('current-language').textContent = lang.toUpperCase();
@@ -18,7 +18,7 @@ function changeLanguage(lang) {
     document.querySelectorAll('.language-option').forEach(option => {
         option.classList.remove('selected');
     });
-    event.target.classList.add('selected');
+    if (el) el.classList.add('selected');
 
     document.getElementById('language-dropdown').classList.remove('active');
 
@@ -104,6 +104,26 @@ function applyTranslations() {
 
     // Renderizar carpeta actual
     renderFolder(currentFolder);
+
+    // Actualizar visor de imágenes si está abierto
+    const imageWindow = document.getElementById('window-image');
+    if (imageWindow && imageWindow.classList.contains('active')) {
+        document.getElementById('image-title').textContent = `${t.image} - ${t.image_viewer}`;
+    }
+
+    // Actualizar notepad si está abierto
+    const notepadWindow = document.getElementById('window-notepad');
+    if (notepadWindow && notepadWindow.classList.contains('active') && currentNotepadData && currentNotepadData.contentObj) {
+        const newContent = currentNotepadData.contentObj[currentLanguage] || currentNotepadData.contentObj.es;
+        document.getElementById('notepad-content').value = newContent;
+    }
+
+    // Actualizar ventana de proyecto si está abierta
+    const projectWindow = document.getElementById('window-project');
+    if (projectWindow && projectWindow.classList.contains('active') && currentProjectData && currentProjectData.descriptionObj) {
+        const newDesc = currentProjectData.descriptionObj[currentLanguage] || currentProjectData.descriptionObj.es;
+        document.getElementById('project-description').textContent = newDesc;
+    }
 }
 
 // Cerrar dropdown al hacer clic fuera
