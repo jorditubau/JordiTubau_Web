@@ -124,6 +124,32 @@ function applyTranslations() {
         const newDesc = currentProjectData.descriptionObj[currentLanguage] || currentProjectData.descriptionObj.es;
         document.getElementById('project-description').textContent = newDesc;
     }
+
+    // Enlaces legales del footer
+    const taskbarLegalLinks = document.querySelectorAll('.taskbar-legal a');
+    if (taskbarLegalLinks.length >= 2) {
+        taskbarLegalLinks[0].textContent = t.legal_notice;
+        taskbarLegalLinks[1].textContent = t.privacy_policy;
+    }
+
+    // Checkbox de privacidad en el formulario
+    const privacyCheckLabel = document.querySelector('label[style*="flex"]');
+    if (privacyCheckLabel) {
+        const privacyLink = privacyCheckLabel.querySelector('a[href*="privacidad"], a[href*="privacy"]');
+        const legalLink = privacyCheckLabel.querySelector('a[href*="aviso-legal"], a[href*="legal-notice"]');
+        if (privacyLink && legalLink) {
+            const privacyHref = currentLanguage === 'es' ? 'privacidad.html' : 'privacy-policy.html';
+            const legalHref = currentLanguage === 'es' ? 'aviso-legal.html' : 'legal-notice.html';
+            privacyLink.href = privacyHref;
+            privacyLink.textContent = t.privacy_policy;
+            legalLink.href = legalHref;
+            legalLink.textContent = t.legal_notice;
+            const span = privacyCheckLabel.querySelector('span');
+            if (span) {
+                span.innerHTML = `${t.privacy_checkbox} <a href="${privacyHref}" target="_blank" style="color: #0000ff; text-decoration: underline;">${t.privacy_policy}</a> ${t.and} <a href="${legalHref}" target="_blank" style="color: #0000ff; text-decoration: underline;">${t.legal_notice}</a>`;
+            }
+        }
+    }
 }
 
 // Cerrar dropdown al hacer clic fuera

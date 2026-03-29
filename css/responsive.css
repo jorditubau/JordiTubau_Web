@@ -376,6 +376,11 @@
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
     }
+
+    /* Ocultar enlaces legales en móvil para ahorrar espacio */
+    .taskbar-legal {
+        display: none;
+    }
 }
 
 /* ── Móviles pequeños (hasta 480px) ────────── */

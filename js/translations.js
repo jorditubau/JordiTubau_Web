@@ -55,7 +55,13 @@ const translations = {
         paused_continue: 'Pulsa P para continuar',
 
         // Visor de imágenes
-        image_viewer: 'Visor de Imágenes'
+        image_viewer: 'Visor de Imágenes',
+
+        // Enlaces legales
+        privacy_policy: 'Privacidad',
+        legal_notice: 'Aviso Legal',
+        privacy_checkbox: 'He leído y acepto la',
+        and: 'y el'
     },
     en: {
         // Taskbar
@@ -108,6 +114,12 @@ const translations = {
         paused_continue: 'Press P to continue',
 
         // Image viewer
-        image_viewer: 'Image Viewer'
+        image_viewer: 'Image Viewer',
+
+        // Legal links
+        privacy_policy: 'Privacy',
+        legal_notice: 'Legal Notice',
+        privacy_checkbox: 'I have read and accept the',
+        and: 'and the'
     }
 };
