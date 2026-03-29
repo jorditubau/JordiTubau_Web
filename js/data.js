@@ -62,7 +62,33 @@ I value teamwork, clear communication and
 commitment. I'm looking to keep growing
 as a developer, gain experience in real
 projects and become an increasingly complete
-professional, both technically and personally.`
+professional, both technically and personally.`,
+                ca: `QUI SÓC?
+═══════════════════════════════════════════
+
+Hola! Soc en Jordi Tubau Martínez, visc a
+Barcelona i soc Tècnic Superior en
+Desenvolupament d'Aplicacions Multiplataforma.
+
+Vaig triar el desenvolupament web perquè
+m'agrada construir, millorar i donar forma
+a idees a través del codi.
+
+Em defineixo com una persona curiosa,
+constant i amb ganes de continuar
+evolucionant. Quan treballo en un
+projecte, m'implico al màxim: m'agrada
+entendre el perquè de les coses, buscar
+solucions ben pensades i aprendre de
+cada repte que apareix.
+
+Valoro el treball en equip, la comunicació
+clara i el compromís. Busco continuar
+creixent com a desenvolupador, guanyar
+experiència en projectes reals i
+convertir-me en un professional cada cop
+més complet, tant a nivell tècnic
+com personal.`
             }
         },
         {
@@ -131,8 +157,8 @@ Ayudante de Electricista | 2018 – 2019
    
 `,
                 en: `
-  JORDI TUBAU MARTÍNEZ                     
-  Full Stack Web Developer                 
+  JORDI TUBAU MARTÍNEZ
+  Full Stack Web Developer
 ═══════════════════════════════════════════
 
 CONTACT
@@ -186,8 +212,69 @@ Generalist in Animation, Modeling, Texturing
 and Rendering — Niji Mochis | 2021
 
 Electrician's Assistant | 2018 – 2019
-  
-   
+
+
+`,
+                ca: `
+  JORDI TUBAU MARTÍNEZ
+  Desenvolupador Web Full Stack
+═══════════════════════════════════════════
+
+CONTACTE
+───────────────────────────────────────────
+✉  jorditubau24@gmail.com
+☎  +34 684 231 874
+
+TECNOLOGIES
+───────────────────────────────────────────
+HTML · CSS · JavaScript · PHP · Angular
+Laravel · n8n · Node.js · MySQL · Java
+Git · Magento 2 · WordPress
+
+IDIOMES
+───────────────────────────────────────────
+Català · Castellà · Anglès
+
+FORMACIÓ
+───────────────────────────────────────────
+(2022-2025) Grau Superior de Desenvolupament Web
+            UOC (Universitat Oberta de Catalunya)
+
+(2019-2021) Grau Superior d'Animació 3D
+            La Salle Barceloneta
+
+(2017-2019) Grau Mitjà de Manteniment
+            Electromecànic
+            Escola Xarxa, Berga
+
+EXPERIÈNCIA
+───────────────────────────────────────────
+Desenvolupador Web Full Stack — TBB Agency
+2025 – Present
+• Desenvolupament de CMS a mida a partir de
+  dissenys en Figma
+• Maquetació responsive amb focus en detall
+  visual, accessibilitat i rendiment
+• Implementació de noves funcionalitats
+  sobre codi existent
+• Manteniment i actualització de plugins
+  (seguretat, compatibilitat, estabilitat)
+• Optimització i refactorització de codi
+  aplicant bones pràctiques
+• Col·laboració amb equips de disseny i
+  desenvolupament
+
+Treballador en Supermercat — HiperPas
+2022 – 2025
+
+Cuiner — McDonald's | 2022
+
+Generalista en Animació, Modelatge,
+Texturització i Renderitzat — Niji Mochis | 2021
+
+Ajudant d'Electricista | 2018 – 2019
+
+
 `
             }
         }
@@ -202,7 +289,8 @@ Electrician's Assistant | 2018 – 2019
             video: 'assets/cv_craft_vid.mp4',
             description: {
                 es: 'Aplicación web para crear CVs profesionales sin registro. El usuario rellena un formulario intuitivo y ve su currículum actualizarse en tiempo real en tres templates distintos: clásico, moderno y minimal. Permite exportar a PDF, compartir el CV mediante una URL codificada y guarda el progreso automáticamente en el navegador.\n\nTecnologías:\nReact · TypeScript · Tailwind CSS · Zustand · react-hook-form · jsPDF · html2canvas · dnd-kit',
-                en: 'Web application to create professional CVs with no registration. The user fills out an intuitive form and sees their résumé update in real time across three distinct templates: classic, modern and minimal. Supports PDF export, CV sharing via encoded URL, and automatically saves progress in the browser.\n\nTechnologies:\nReact · TypeScript · Tailwind CSS · Zustand · react-hook-form · jsPDF · html2canvas · dnd-kit'
+                en: 'Web application to create professional CVs with no registration. The user fills out an intuitive form and sees their résumé update in real time across three distinct templates: classic, modern and minimal. Supports PDF export, CV sharing via encoded URL, and automatically saves progress in the browser.\n\nTechnologies:\nReact · TypeScript · Tailwind CSS · Zustand · react-hook-form · jsPDF · html2canvas · dnd-kit',
+                ca: 'Aplicació web per crear CVs professionals sense registre. L\'usuari omple un formulari intuïtiu i veu el seu currículum actualitzar-se en temps real en tres plantilles diferents: clàssic, modern i minimal. Permet exportar a PDF, compartir el CV mitjançant una URL codificada i desa el progrés automàticament al navegador.\n\nTecnologies:\nReact · TypeScript · Tailwind CSS · Zustand · react-hook-form · jsPDF · html2canvas · dnd-kit'
             }
         },
         {
@@ -214,7 +302,8 @@ Electrician's Assistant | 2018 – 2019
             video: 'assets/focusflow_vid.mp4',
             description: {
                 es: 'Suite de productividad completa basada en la técnica Pomodoro. Incluye temporizador con anillo de progreso animado, gestión de tareas con drag & drop, sonidos de ambiente (lluvia, cafetería, bosque) y un dashboard de estadísticas con gráficos de actividad semanal y mapa de calor tipo GitHub. Todo funciona offline y guarda el historial completo en el navegador.\n\nTecnologías:\nReact · TypeScript · Tailwind CSS · Zustand · dnd-kit · Howler.js · Recharts',
-                en: 'Full productivity suite based on the Pomodoro technique. Includes a timer with animated progress ring, drag & drop task management, ambient sounds (rain, café, forest) and a statistics dashboard with weekly activity charts and a GitHub-style heatmap. Everything works offline and saves the full history in the browser.\n\nTechnologies:\nReact · TypeScript · Tailwind CSS · Zustand · dnd-kit · Howler.js · Recharts'
+                en: 'Full productivity suite based on the Pomodoro technique. Includes a timer with animated progress ring, drag & drop task management, ambient sounds (rain, café, forest) and a statistics dashboard with weekly activity charts and a GitHub-style heatmap. Everything works offline and saves the full history in the browser.\n\nTechnologies:\nReact · TypeScript · Tailwind CSS · Zustand · dnd-kit · Howler.js · Recharts',
+                ca: 'Suite de productivitat completa basada en la tècnica Pomodoro. Inclou temporitzador amb anell de progrés animat, gestió de tasques amb drag & drop, sons ambientals (pluja, cafeteria, bosc) i un dashboard d\'estadístiques amb gràfics d\'activitat setmanal i mapa de calor tipus GitHub. Tot funciona offline i desa l\'historial complet al navegador.\n\nTecnologies:\nReact · TypeScript · Tailwind CSS · Zustand · dnd-kit · Howler.js · Recharts'
             }
         }
     ]

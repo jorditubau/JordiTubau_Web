@@ -3,7 +3,7 @@
  * Sistema de cambio de idioma y traducciones
  */
 
-let currentLanguage = 'es';
+let currentLanguage = localStorage.getItem('lang') || 'es';
 
 function toggleLanguageDropdown() {
     const dropdown = document.getElementById('language-dropdown');
@@ -12,6 +12,7 @@ function toggleLanguageDropdown() {
 
 function changeLanguage(lang, el) {
     currentLanguage = lang;
+    localStorage.setItem('lang', lang);
 
     document.getElementById('current-language').textContent = lang.toUpperCase();
 
@@ -138,8 +139,8 @@ function applyTranslations() {
         const privacyLink = privacyCheckLabel.querySelector('a[href*="privacidad"], a[href*="privacy"]');
         const legalLink = privacyCheckLabel.querySelector('a[href*="aviso-legal"], a[href*="legal-notice"]');
         if (privacyLink && legalLink) {
-            const privacyHref = currentLanguage === 'es' ? 'privacidad.html' : 'privacy-policy.html';
-            const legalHref = currentLanguage === 'es' ? 'aviso-legal.html' : 'legal-notice.html';
+            const privacyHref = currentLanguage === 'en' ? 'privacy-policy.html' : 'privacidad.html';
+            const legalHref = currentLanguage === 'en' ? 'legal-notice.html' : 'aviso-legal.html';
             privacyLink.href = privacyHref;
             privacyLink.textContent = t.privacy_policy;
             legalLink.href = legalHref;

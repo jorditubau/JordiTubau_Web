@@ -121,5 +121,64 @@ const translations = {
         legal_notice: 'Legal Notice',
         privacy_checkbox: 'I have read and accept the',
         and: 'and the'
+    },
+    ca: {
+        // Barra de tasques
+        contact: 'Contacta\'m',
+
+        // Icones de l'escriptori
+        trash: 'Paperera',
+        contact_file: 'Contacte.txt',
+        game: 'Joc.exe',
+        image: 'FotoCV.jpg',
+        main_folder: 'Jordi Tubau',
+
+        // Carpetes principals
+        who_am_i: 'Sobre mi',
+        projects: 'Projectes',
+        back: '◄ Enrere',
+
+        // Arxius de "Qui soc?"
+        who_file: 'Qui_soc.txt',
+        cv_file: 'CV.txt',
+
+        // Projectes
+        project1: 'E-Commerce Platform',
+        project2: 'Task Manager App',
+        project3: 'Portfolio Retro OS',
+        view_project: 'Veure Projecte',
+
+        // Paperera
+        trash_file: 'esborrany.txt',
+        trash_image: 'img_2009.jpg',
+
+        // Finestra de contacte
+        contact_window_title: 'Contacta\'m',
+        name_label: 'Nom:',
+        email_label: 'El teu Email:',
+        subject_label: 'Assumpte:',
+        message_label: 'Missatge:',
+        cancel_button: 'Cancel·lar',
+        send_button: 'Enviar',
+
+        // Joc
+        game_title: 'Joc.exe - Space Invaders',
+        score: 'PUNTS',
+        game_over: 'GAME OVER',
+        restart: 'REINICIAR',
+        controls_move: 'Moure',
+        controls_shoot: 'Disparar',
+        controls_pause: 'Pausa',
+        paused: 'PAUSAT',
+        paused_continue: 'Prem P per continuar',
+
+        // Visualitzador d'imatges
+        image_viewer: 'Visualitzador d\'Imatges',
+
+        // Enllaços legals
+        privacy_policy: 'Privacitat',
+        legal_notice: 'Avís Legal',
+        privacy_checkbox: 'He llegit i accepto la',
+        and: 'i el'
     }
 };

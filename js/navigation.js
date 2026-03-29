@@ -185,23 +185,33 @@ function handleTrashDoubleClick(fileIcon) {
 
     if (fileIcon.hasAttribute('data-trash-file')) {
         const fileName = t.trash_file;
-        const content = currentLanguage === 'es'
-            ? `ARCHIVO ELIMINADO
+        const trashContents = {
+            es: `ARCHIVO ELIMINADO
 ═══════════════════════════════════════
 
 "A veces hay que eliminar cosas para
 hacer espacio a lo nuevo"
 
 ═══════════════════════════════════════
-Fecha de eliminación: 14/02/2026`
-            : `DELETED FILE
+Fecha de eliminación: 14/02/2026`,
+            en: `DELETED FILE
 ═══════════════════════════════════════
 
 "Sometimes you have to delete things
 to make room for the new"
 
 ═══════════════════════════════════════
-Deletion date: 02/14/2026`;
+Deletion date: 02/14/2026`,
+            ca: `ARXIU ELIMINAT
+═══════════════════════════════════════
+
+"De vegades cal eliminar coses per
+fer espai al nou"
+
+═══════════════════════════════════════
+Data d'eliminació: 14/02/2026`
+        };
+        const content = trashContents[currentLanguage] || trashContents.es;
         openNotepad(fileName, content);
     }
     else if (fileIcon.hasAttribute('data-trash-image')) {

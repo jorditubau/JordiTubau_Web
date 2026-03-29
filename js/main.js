@@ -21,6 +21,12 @@ window.addEventListener('load', () => {
         lucide.createIcons();
     }
 
+    // Restaurar idioma guardado
+    if (currentLanguage !== 'es') {
+        const savedOption = document.querySelector(`.language-option[onclick*="'${currentLanguage}'"]`);
+        changeLanguage(currentLanguage, savedOption);
+    }
+
     // Abrir ventana principal solo en escritorio
     if (!isMobileView) {
         openWindow('window-main');
